@@ -40,8 +40,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Dispose of any resources that can be recreated.
     }
     
-    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
-        return .LandscapeLeft
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.LandscapeLeft.rawValue
     }
     
     func startCameraSession() {
