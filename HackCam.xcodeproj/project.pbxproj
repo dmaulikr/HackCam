@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		114200E71A9FC2F900DB5B11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114200E61A9FC2F900DB5B11 /* AppDelegate.swift */; };
+		114200E91A9FC2F900DB5B11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114200E81A9FC2F900DB5B11 /* ViewController.swift */; };
+		114200EC1A9FC2F900DB5B11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114200EA1A9FC2F900DB5B11 /* Main.storyboard */; };
+		114200EE1A9FC2F900DB5B11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 114200ED1A9FC2F900DB5B11 /* Images.xcassets */; };
+		114200F11A9FC2F900DB5B11 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114200EF1A9FC2F900DB5B11 /* LaunchScreen.xib */; };
+		114200FD1A9FC2F900DB5B11 /* HackCamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114200FC1A9FC2F900DB5B11 /* HackCamTests.swift */; };
+		11BAFB501A9FF08000F53408 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BAFB4F1A9FF08000F53408 /* BlurView.swift */; };
+		11BAFB521A9FF09300F53408 /* BlurView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BAFB511A9FF09300F53408 /* BlurView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		114200F71A9FC2F900DB5B11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 114200D91A9FC2F900DB5B11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 114200E01A9FC2F900DB5B11;
+			remoteInfo = SimpleCamera;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		114200E11A9FC2F900DB5B11 /* HackCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		114200E51A9FC2F900DB5B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		114200E61A9FC2F900DB5B11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		114200E81A9FC2F900DB5B11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		114200EB1A9FC2F900DB5B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		114200ED1A9FC2F900DB5B11 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		114200F01A9FC2F900DB5B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		114200F61A9FC2F900DB5B11 /* HackCamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackCamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		114200FB1A9FC2F900DB5B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = HackCamTests/Info.plist; sourceTree = "<group>"; };
+		114200FC1A9FC2F900DB5B11 /* HackCamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HackCamTests.swift; path = HackCamTests/HackCamTests.swift; sourceTree = "<group>"; };
+		11BAFB4F1A9FF08000F53408 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		11BAFB511A9FF09300F53408 /* BlurView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlurView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		114200DE1A9FC2F900DB5B11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		114200F31A9FC2F900DB5B11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		114200D81A9FC2F900DB5B11 = {
+			isa = PBXGroup;
+			children = (
+				114200E31A9FC2F900DB5B11 /* HackCam */,
+				114200F91A9FC2F900DB5B11 /* HackCamTests */,
+				114200E21A9FC2F900DB5B11 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		114200E21A9FC2F900DB5B11 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				114200E11A9FC2F900DB5B11 /* HackCam.app */,
+				114200F61A9FC2F900DB5B11 /* HackCamTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		114200E31A9FC2F900DB5B11 /* HackCam */ = {
+			isa = PBXGroup;
+			children = (
+				114200E61A9FC2F900DB5B11 /* AppDelegate.swift */,
+				114200E81A9FC2F900DB5B11 /* ViewController.swift */,
+				11BAFB4F1A9FF08000F53408 /* BlurView.swift */,
+				11BAFB511A9FF09300F53408 /* BlurView.xib */,
+				114200EA1A9FC2F900DB5B11 /* Main.storyboard */,
+				114200ED1A9FC2F900DB5B11 /* Images.xcassets */,
+				114200EF1A9FC2F900DB5B11 /* LaunchScreen.xib */,
+				114200E41A9FC2F900DB5B11 /* Supporting Files */,
+			);
+			path = HackCam;
+			sourceTree = "<group>";
+		};
+		114200E41A9FC2F900DB5B11 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				114200E51A9FC2F900DB5B11 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		114200F91A9FC2F900DB5B11 /* HackCamTests */ = {
+			isa = PBXGroup;
+			children = (
+				114200FC1A9FC2F900DB5B11 /* HackCamTests.swift */,
+				114200FA1A9FC2F900DB5B11 /* Supporting Files */,
+			);
+			name = HackCamTests;
+			path = SimpleCameraTests;
+			sourceTree = "<group>";
+		};
+		114200FA1A9FC2F900DB5B11 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				114200FB1A9FC2F900DB5B11 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		114200E01A9FC2F900DB5B11 /* HackCam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 114201001A9FC2F900DB5B11 /* Build configuration list for PBXNativeTarget "HackCam" */;
+			buildPhases = (
+				114200DD1A9FC2F900DB5B11 /* Sources */,
+				114200DE1A9FC2F900DB5B11 /* Frameworks */,
+				114200DF1A9FC2F900DB5B11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HackCam;
+			productName = SimpleCamera;
+			productReference = 114200E11A9FC2F900DB5B11 /* HackCam.app */;
+			productType = "com.apple.product-type.application";
+		};
+		114200F51A9FC2F900DB5B11 /* HackCamTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 114201031A9FC2F900DB5B11 /* Build configuration list for PBXNativeTarget "HackCamTests" */;
+			buildPhases = (
+				114200F21A9FC2F900DB5B11 /* Sources */,
+				114200F31A9FC2F900DB5B11 /* Frameworks */,
+				114200F41A9FC2F900DB5B11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				114200F81A9FC2F900DB5B11 /* PBXTargetDependency */,
+			);
+			name = HackCamTests;
+			productName = SimpleCameraTests;
+			productReference = 114200F61A9FC2F900DB5B11 /* HackCamTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		114200D91A9FC2F900DB5B11 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Clarence Ji";
+				TargetAttributes = {
+					114200E01A9FC2F900DB5B11 = {
+						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = G6TTA6H999;
+					};
+					114200F51A9FC2F900DB5B11 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 114200E01A9FC2F900DB5B11;
+					};
+				};
+			};
+			buildConfigurationList = 114200DC1A9FC2F900DB5B11 /* Build configuration list for PBXProject "HackCam" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 114200D81A9FC2F900DB5B11;
+			productRefGroup = 114200E21A9FC2F900DB5B11 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				114200E01A9FC2F900DB5B11 /* HackCam */,
+				114200F51A9FC2F900DB5B11 /* HackCamTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		114200DF1A9FC2F900DB5B11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				114200EC1A9FC2F900DB5B11 /* Main.storyboard in Resources */,
+				11BAFB521A9FF09300F53408 /* BlurView.xib in Resources */,
+				114200F11A9FC2F900DB5B11 /* LaunchScreen.xib in Resources */,
+				114200EE1A9FC2F900DB5B11 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		114200F41A9FC2F900DB5B11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		114200DD1A9FC2F900DB5B11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				114200E91A9FC2F900DB5B11 /* ViewController.swift in Sources */,
+				114200E71A9FC2F900DB5B11 /* AppDelegate.swift in Sources */,
+				11BAFB501A9FF08000F53408 /* BlurView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		114200F21A9FC2F900DB5B11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				114200FD1A9FC2F900DB5B11 /* HackCamTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		114200F81A9FC2F900DB5B11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 114200E01A9FC2F900DB5B11 /* HackCam */;
+			targetProxy = 114200F71A9FC2F900DB5B11 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		114200EA1A9FC2F900DB5B11 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				114200EB1A9FC2F900DB5B11 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		114200EF1A9FC2F900DB5B11 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				114200F01A9FC2F900DB5B11 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		114200FE1A9FC2F900DB5B11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		114200FF1A9FC2F900DB5B11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		114201011A9FC2F900DB5B11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/HackCam/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = HackCam;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		114201021A9FC2F900DB5B11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/HackCam/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = HackCam;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		114201041A9FC2F900DB5B11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimpleCameraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = HackCamTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleCamera.app/SimpleCamera";
+			};
+			name = Debug;
+		};
+		114201051A9FC2F900DB5B11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimpleCameraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = HackCamTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleCamera.app/SimpleCamera";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		114200DC1A9FC2F900DB5B11 /* Build configuration list for PBXProject "HackCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				114200FE1A9FC2F900DB5B11 /* Debug */,
+				114200FF1A9FC2F900DB5B11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		114201001A9FC2F900DB5B11 /* Build configuration list for PBXNativeTarget "HackCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				114201011A9FC2F900DB5B11 /* Debug */,
+				114201021A9FC2F900DB5B11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		114201031A9FC2F900DB5B11 /* Build configuration list for PBXNativeTarget "HackCamTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				114201041A9FC2F900DB5B11 /* Debug */,
+				114201051A9FC2F900DB5B11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 114200D91A9FC2F900DB5B11 /* Project object */;
+}
