@@ -8,6 +8,7 @@
 
 import UIKit
 import MobileCoreServices
+import AVFoundation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
@@ -22,6 +23,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } else {
             currentOrientation = "LandscapeLeft"
         }
+        
+        var videoDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        println("Supported Rate Ranges: \(videoDevice.activeFormat.videoSupportedFrameRateRanges)")
+        
+//        var error: NSError?
+//        videoDevice.lockForConfiguration(&error)
+//        if error == nil {
+//            videoDevice.activeVideoMaxFrameDuration = CMTimeMake(10, 600)
+//            videoDevice.activeVideoMinFrameDuration = CMTimeMake(10, 600)
+//        } else {
+//            
+//        }
+//        videoDevice.unlockForConfiguration()
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -165,10 +181,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 println("Now LandscapeLeft, trnasformation prerformed")
                 dispatch_async(dispatch_get_main_queue(), {
                     self.cameraPicker.view.transform =
-                        CGAffineTransformScale(
-                            CGAffineTransformTranslate(
-                                CGAffineTransformMakeRotation(CGFloat(M_PI/2)), -15, -15),
-                            1.2, 1.2)
+                        CGAffineTransformTranslate(
+                            CGAffineTransformMakeRotation(CGFloat(M_PI/2)), -15, -15)
+//                        CGAffineTransformScale(
+//                            CGAffineTransformTranslate(
+//                                CGAffineTransformMakeRotation(CGFloat(M_PI/2)), -15, -15),
+//                            1.2, 1.2)
                     self.cameraPicker.view.frame = self.view.bounds
                 })
             }
@@ -180,11 +198,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.currentOrientation = "Portrait"
                 println("Now Portrait, transformation performed")
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.cameraPicker.view.transform =
-                        CGAffineTransformScale(
-                            CGAffineTransformTranslate(
-                                CGAffineTransformMakeRotation(0), 0, 0),
-                            1.2, 1.2)
+                    self.cameraPicker.view.transform = CGAffineTransformTranslate(
+                        CGAffineTransformMakeRotation(0), 0, 0)
+//                        CGAffineTransformScale(
+//                            CGAffineTransformTranslate(
+//                                CGAffineTransformMakeRotation(0), 0, 0),
+//                            1.2, 1.2)
                     
                     self.cameraPicker.view.frame = self.view.bounds
                     
