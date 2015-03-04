@@ -11,10 +11,17 @@ import MobileCoreServices
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
-    var cameraPicker = UIImagePickerController()
+    private var cameraPicker = UIImagePickerController()
+    private var currentOrientation: String = ""
+    private var currentOrientation_Indicator: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
+            currentOrientation = "Portrait"
+        } else {
+            currentOrientation = "LandscapeLeft"
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -152,24 +159,39 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         switch currentOrientation {
         case UIInterfaceOrientation.LandscapeLeft:
-            dispatch_async(dispatch_get_main_queue(), {
-                self.cameraPicker.view.frame = self.view.bounds
-                self.cameraPicker.view.transform =
-                    CGAffineTransformScale(
-                        CGAffineTransformTranslate(
-                            CGAffineTransformMakeRotation(CGFloat(M_PI/2)), -15, -15),
-                        1.2, 1.2)
-            })
+            println("Now LandscapeLeft")
+            if self.currentOrientation != "LandscapeLeft" {
+                self.currentOrientation = "LandscapeLeft"
+                println("Now LandscapeLeft, trnasformation prerformed")
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.cameraPicker.view.transform =
+                        CGAffineTransformScale(
+                            CGAffineTransformTranslate(
+                                CGAffineTransformMakeRotation(CGFloat(M_PI/2)), -15, -15),
+                            1.2, 1.2)
+                    self.cameraPicker.view.frame = self.view.bounds
+                })
+            }
+            
             
         case UIInterfaceOrientation.Portrait:
-            dispatch_async(dispatch_get_main_queue(), {
-                self.cameraPicker.view.frame = self.view.bounds
-                self.cameraPicker.view.transform =
-                    CGAffineTransformScale(
-                        CGAffineTransformTranslate(
-                            CGAffineTransformMakeRotation(CGFloat(M_PI/2)), 15, 15),
-                        -1.2, -1.2)
-            })
+            println("Now Portrait")
+            if self.currentOrientation != "Portrait" {
+                self.currentOrientation = "Portrait"
+                println("Now Portrait, transformation performed")
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.cameraPicker.view.transform =
+                        CGAffineTransformScale(
+                            CGAffineTransformTranslate(
+                                CGAffineTransformMakeRotation(0), 0, 0),
+                            1.2, 1.2)
+                    
+                    self.cameraPicker.view.frame = self.view.bounds
+                    
+//                                    self.cameraPicker.view.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2))
+                })
+            }
+            
         default:
             break
         }
