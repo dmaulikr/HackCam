@@ -24,27 +24,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             currentOrientation = "LandscapeLeft"
         }
         
-        var videoDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-        println("Supported Rate Ranges: \(videoDevice.activeFormat.videoSupportedFrameRateRanges)")
-        
-//        var error: NSError?
-//        videoDevice.lockForConfiguration(&error)
-//        if error == nil {
-//            videoDevice.activeVideoMaxFrameDuration = CMTimeMake(10, 600)
-//            videoDevice.activeVideoMinFrameDuration = CMTimeMake(10, 600)
-//        } else {
-//            
-//        }
-//        videoDevice.unlockForConfiguration()
         
         
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationChanged:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationChanged:", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        self.presentViewController(CameraView(), animated: false, completion: nil)
+    }
     
     @IBOutlet var btn_Start: UIButton!
 
