@@ -47,6 +47,10 @@ class CameraView: UIViewController {
          NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationChanged:", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     func focusTo(value : Float) {
         if let device = captureDevice {
             if(device.lockForConfiguration(nil)) {
@@ -59,22 +63,29 @@ class CameraView: UIViewController {
     }
     
     let screenWidth = UIScreen.mainScreen().bounds.size.width
+    let screenHeight = UIScreen.mainScreen().bounds.size.height
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        var anyTouch = touches.first as! UITouch
-        var touchPercent = anyTouch.locationInView(self.view).x / screenWidth
-        focusTo(Float(touchPercent))
+        if let device = captureDevice {
+            if(device.lockForConfiguration(nil)) {
+                device.focusMode = .AutoFocus
+                device.unlockForConfiguration()
+            }
+        }
     }
     
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         var anyTouch = touches.first as! UITouch
         var touchPercent = anyTouch.locationInView(self.view).x / screenWidth
+        if self.currentOrientation == "LandscapeLeft" {
+            touchPercent = anyTouch.locationInView(self.view).y / screenHeight
+        }
         focusTo(Float(touchPercent))
     }
     
     func configureDevice() {
         if let device = captureDevice {
             device.lockForConfiguration(nil)
-            device.focusMode = .Locked
+            device.focusMode = .AutoFocus
             device.unlockForConfiguration()
         }
         
