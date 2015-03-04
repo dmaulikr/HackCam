@@ -12,21 +12,10 @@
 		114200EC1A9FC2F900DB5B11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114200EA1A9FC2F900DB5B11 /* Main.storyboard */; };
 		114200EE1A9FC2F900DB5B11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 114200ED1A9FC2F900DB5B11 /* Images.xcassets */; };
 		114200F11A9FC2F900DB5B11 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114200EF1A9FC2F900DB5B11 /* LaunchScreen.xib */; };
-		114200FD1A9FC2F900DB5B11 /* HackCamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114200FC1A9FC2F900DB5B11 /* HackCamTests.swift */; };
 		11BAFB501A9FF08000F53408 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BAFB4F1A9FF08000F53408 /* BlurView.swift */; };
 		11BAFB521A9FF09300F53408 /* BlurView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BAFB511A9FF09300F53408 /* BlurView.xib */; };
 		11D20DD11AA77DC5003E1403 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D20DD01AA77DC5003E1403 /* CameraView.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		114200F71A9FC2F900DB5B11 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 114200D91A9FC2F900DB5B11 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 114200E01A9FC2F900DB5B11;
-			remoteInfo = SimpleCamera;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		114200E11A9FC2F900DB5B11 /* HackCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,7 +25,6 @@
 		114200EB1A9FC2F900DB5B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		114200ED1A9FC2F900DB5B11 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		114200F01A9FC2F900DB5B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		114200F61A9FC2F900DB5B11 /* HackCamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackCamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		114200FB1A9FC2F900DB5B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = HackCamTests/Info.plist; sourceTree = "<group>"; };
 		114200FC1A9FC2F900DB5B11 /* HackCamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HackCamTests.swift; path = HackCamTests/HackCamTests.swift; sourceTree = "<group>"; };
 		11BAFB4F1A9FF08000F53408 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
@@ -46,13 +34,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		114200DE1A9FC2F900DB5B11 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		114200F31A9FC2F900DB5B11 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -75,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				114200E11A9FC2F900DB5B11 /* HackCam.app */,
-				114200F61A9FC2F900DB5B11 /* HackCamTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,24 +122,6 @@
 			productReference = 114200E11A9FC2F900DB5B11 /* HackCam.app */;
 			productType = "com.apple.product-type.application";
 		};
-		114200F51A9FC2F900DB5B11 /* HackCamTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 114201031A9FC2F900DB5B11 /* Build configuration list for PBXNativeTarget "HackCamTests" */;
-			buildPhases = (
-				114200F21A9FC2F900DB5B11 /* Sources */,
-				114200F31A9FC2F900DB5B11 /* Frameworks */,
-				114200F41A9FC2F900DB5B11 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				114200F81A9FC2F900DB5B11 /* PBXTargetDependency */,
-			);
-			name = HackCamTests;
-			productName = SimpleCameraTests;
-			productReference = 114200F61A9FC2F900DB5B11 /* HackCamTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -171,11 +133,7 @@
 				TargetAttributes = {
 					114200E01A9FC2F900DB5B11 = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = G6TTA6H999;
-					};
-					114200F51A9FC2F900DB5B11 = {
-						CreatedOnToolsVersion = 6.3;
-						TestTargetID = 114200E01A9FC2F900DB5B11;
+						DevelopmentTeam = P5UPNMJK39;
 					};
 				};
 			};
@@ -193,7 +151,6 @@
 			projectRoot = "";
 			targets = (
 				114200E01A9FC2F900DB5B11 /* HackCam */,
-				114200F51A9FC2F900DB5B11 /* HackCamTests */,
 			);
 		};
 /* End PBXProject section */
@@ -207,13 +164,6 @@
 				11BAFB521A9FF09300F53408 /* BlurView.xib in Resources */,
 				114200F11A9FC2F900DB5B11 /* LaunchScreen.xib in Resources */,
 				114200EE1A9FC2F900DB5B11 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		114200F41A9FC2F900DB5B11 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,23 +181,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		114200F21A9FC2F900DB5B11 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				114200FD1A9FC2F900DB5B11 /* HackCamTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		114200F81A9FC2F900DB5B11 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 114200E01A9FC2F900DB5B11 /* HackCam */;
-			targetProxy = 114200F71A9FC2F900DB5B11 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		114200EA1A9FC2F900DB5B11 /* Main.storyboard */ = {
@@ -378,40 +312,6 @@
 			};
 			name = Release;
 		};
-		114201041A9FC2F900DB5B11 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HackCamTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = HackCamTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackCam.app/HackCam";
-			};
-			name = Debug;
-		};
-		114201051A9FC2F900DB5B11 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HackCamTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = HackCamTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackCam.app/HackCam";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -429,15 +329,6 @@
 			buildConfigurations = (
 				114201011A9FC2F900DB5B11 /* Debug */,
 				114201021A9FC2F900DB5B11 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		114201031A9FC2F900DB5B11 /* Build configuration list for PBXNativeTarget "HackCamTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				114201041A9FC2F900DB5B11 /* Debug */,
-				114201051A9FC2F900DB5B11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
