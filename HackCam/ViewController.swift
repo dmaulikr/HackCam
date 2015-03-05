@@ -15,7 +15,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     private var cameraPicker = UIImagePickerController()
     private var currentOrientation: String = ""
     private var currentOrientation_Indicator: Bool = true
+    
 
+    @IBOutlet var btn_ShowBlur: UIButton!
+    @IBOutlet var img_BottomRightLogo: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
@@ -70,27 +74,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let deviceWidth = UIScreen.mainScreen().bounds.width
                 let deviceHeight = UIScreen.mainScreen().bounds.height
                 
-                let imageView_Logo = UIImageView()
                 
-                imageView_Logo.image = UIImage(named: "HL_Logo")!
-                imageView_Logo.frame = CGRectMake(deviceWidth - 80, -10, 70, 124)
-                imageView_Logo.layer.shadowColor = UIColor.blackColor().CGColor;
-                imageView_Logo.layer.shadowOffset = CGSizeMake(1, 1);
-                imageView_Logo.layer.shadowOpacity = 1;
-                imageView_Logo.layer.shadowRadius = 2.0;
-                imageView_Logo.clipsToBounds = false;
+                
+                self.img_BottomRightLogo.layer.shadowColor = UIColor.blackColor().CGColor;
+                self.img_BottomRightLogo.layer.shadowOffset = CGSizeZero;
+                self.img_BottomRightLogo.layer.shadowOpacity = 1;
+                self.img_BottomRightLogo.layer.shadowRadius = 3.0;
+                self.img_BottomRightLogo.clipsToBounds = false;
                 
                 var button = UIButton()
                 button.setTitle("•", forState: .Normal)
                 button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
                 
-                button.frame = CGRectMake(deviceWidth - 50, deviceHeight - 30, 50, 30)
-                button.addTarget(self, action: "button:", forControlEvents: .TouchUpInside)
+                self.btn_ShowBlur.alpha = 0.6
+                self.btn_ShowBlur.addTarget(self, action: "showBlurView:", forControlEvents: .TouchUpInside)
                 
                 
                 
-                self.cameraPicker.view.addSubview(button)
-                self.cameraPicker.view.addSubview(imageView_Logo)
+                self.view.addSubview(button)
+                self.view.bringSubviewToFront(button)
+                self.view.bringSubviewToFront(self.btn_ShowBlur)
+                self.view.bringSubviewToFront(self.img_BottomRightLogo)
+                
                 
             })
             
@@ -103,17 +108,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var blurView: UIVisualEffectView!
     var imageView_LogoBig: UIImageView!
     
-    func button(btn: UIButton) {        
+    func showBlurView(btn: UIButton) {
         println("I KNEW YOU WERE TROUBLE")
         let blurEffect = UIBlurEffect(style: .Light)
         blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = self.view.bounds
         blurView.alpha = 0
-        cameraPicker.view.addSubview(blurView)
-        cameraPicker.view.bringSubviewToFront(btn)
         
-        imageView_LogoBig = UIImageView(image: UIImage(named: "HL_Logo")!)
-        imageView_LogoBig.frame = CGRectMake(0, 0, 180, 320)
+        
+        
+        imageView_LogoBig = UIImageView(image: UIImage(named: "HL_Logo_Normal")!)
+        imageView_LogoBig.frame = CGRectMake(0, 0, 320, 180)
         imageView_LogoBig.center = self.view.center
         imageView_LogoBig.alpha = 0
         imageView_LogoBig.layer.shadowColor = UIColor.blackColor().CGColor;
@@ -121,7 +126,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imageView_LogoBig.layer.shadowOpacity = 1;
         imageView_LogoBig.layer.shadowRadius = 3.0;
         imageView_LogoBig.clipsToBounds = false;
-        cameraPicker.view.addSubview(imageView_LogoBig)
+//        imageView_LogoBig.transform = CGAffineTransformMakeRotation(CGFloat(M_PI / 2))
+        
+        self.view.addSubview(imageView_LogoBig)
+        self.view.addSubview(blurView)
+        self.view.bringSubviewToFront(blurView)
+        self.view.bringSubviewToFront(imageView_LogoBig)
+        self.view.bringSubviewToFront(btn)
         
         UIView.animateWithDuration(0.8, animations: {
             self.blurView.alpha = 1.0
@@ -146,7 +157,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         })
         
         btn.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
-        btn.addTarget(self, action: "button:", forControlEvents: .TouchUpInside)
+        btn.addTarget(self, action: "showBlurView:", forControlEvents: .TouchUpInside)
     }
     
     
@@ -169,6 +180,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             })
         default: break
         }
+        
         
         
     }
