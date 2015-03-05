@@ -21,6 +21,12 @@ class CameraView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
+            currentOrientation = "Portrait"
+        } else {
+            currentOrientation = "LandscapeLeft"
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
         
@@ -41,10 +47,40 @@ class CameraView: UIViewController {
             }
         }
         
+        self.previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+
+        
     }
     
     override func viewWillAppear(animated: Bool) {
-         NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationChanged:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationChanged:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation(rawValue: UIApplication.sharedApplication().statusBarOrientation.rawValue)!
+        
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.view.bounds = UIScreen.mainScreen().bounds
+            if self.currentOrientation == "LandscapeLeft" {
+                self.currentOrientation = "LandscapeLeft"
+                println("Now LandscapeLeft, trnasformation prerformed")
+                dispatch_async(dispatch_get_main_queue(), {
+//                    self.view.transform =
+//                        CGAffineTransformTranslate(
+//                            CGAffineTransformMakeRotation(CGFloat(M_PI/2)), -15, -15)
+                    
+                    println(self.previewLayer?.frame)
+                    self.previewLayer?.frame = self.view.bounds
+                    //                    self.previewLayer?.center
+                    self.previewLayer?.videoGravity = AVLayerVideoGravityResize
+                    println(self.previewLayer?.frame)
+                })
+            }
+            
+        })
+        
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -112,51 +148,55 @@ class CameraView: UIViewController {
     
     func deviceOrientationChanged(notification: NSNotification) {
         
-        var currentOrientation = UIApplication.sharedApplication().statusBarOrientation
+//        var currentOrientation = UIApplication.sharedApplication().statusBarOrientation
+//        
+//        switch currentOrientation {
+//        case UIInterfaceOrientation.LandscapeLeft:
+//            println("Now LandscapeLeft")
+//            if self.currentOrientation != "LandscapeLeft" {
+//                self.currentOrientation = "LandscapeLeft"
+//                println("Now LandscapeLeft, trnasformation prerformed")
+//                dispatch_async(dispatch_get_main_queue(), {
+//                    self.view.transform =
+//                        CGAffineTransformTranslate(
+//                            CGAffineTransformMakeRotation(CGFloat(M_PI/2)), -15, -15)
+//                    self.previewLayer!.frame = UIScreen.mainScreen().bounds
+//                })
+//            }
+//            
+//            
+//        case UIInterfaceOrientation.Portrait:
+//            println("Now Portrait")
+//            if self.currentOrientation != "Portrait" {
+//                self.currentOrientation = "Portrait"
+//                println("Now Portrait, transformation performed")
+//                dispatch_async(dispatch_get_main_queue(), {
+//                    self.view.transform = CGAffineTransformTranslate(
+//                        CGAffineTransformMakeRotation(0), 0, 0)
+//                    self.previewLayer!.frame = UIScreen.mainScreen().bounds
+//                })
+//            }
+//            
+//        default:
+//            break
+//        }
         
-        switch currentOrientation {
-        case UIInterfaceOrientation.LandscapeLeft:
-            println("Now LandscapeLeft")
-            if self.currentOrientation != "LandscapeLeft" {
-                self.currentOrientation = "LandscapeLeft"
-                println("Now LandscapeLeft, trnasformation prerformed")
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.view.transform =
-                        CGAffineTransformTranslate(
-                            CGAffineTransformMakeRotation(CGFloat(M_PI/2)), -15, -15)
-                    //                        CGAffineTransformScale(
-                    //                            CGAffineTransformTranslate(
-                    //                                CGAffineTransformMakeRotation(CGFloat(M_PI/2)), -15, -15),
-                    //                            1.2, 1.2)
-                    self.view.frame = UIScreen.mainScreen().bounds
-                })
-            }
-            
-            
-        case UIInterfaceOrientation.Portrait:
-            println("Now Portrait")
-            if self.currentOrientation != "Portrait" {
-                self.currentOrientation = "Portrait"
-                println("Now Portrait, transformation performed")
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.view.transform = CGAffineTransformTranslate(
-                        CGAffineTransformMakeRotation(0), 0, 0)
-                    //                        CGAffineTransformScale(
-                    //                            CGAffineTransformTranslate(
-                    //                                CGAffineTransformMakeRotation(0), 0, 0),
-                    //                            1.2, 1.2)
-                    
-                    self.view.frame = UIScreen.mainScreen().bounds
-                    
-                    //                                    self.cameraPicker.view.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2))
-                })
-            }
-            
-        default:
-            break
+        var deviceOrientation = UIApplication.sharedApplication().statusBarOrientation
+        switch deviceOrientation {
+        case .Portrait:
+            self.previewLayer?.connection.videoOrientation = .Portrait
+            dispatch_async(dispatch_get_main_queue(), {
+                self.previewLayer?.frame = self.view.bounds
+                self.previewLayer?.videoGravity = AVLayerVideoGravityResize
+            })
+        case .LandscapeLeft:
+            self.previewLayer?.connection.videoOrientation = .LandscapeLeft
+            dispatch_async(dispatch_get_main_queue(), {
+                self.previewLayer?.frame = self.view.bounds
+                self.previewLayer?.videoGravity = AVLayerVideoGravityResize
+            })
+        default: break
         }
-        
-        
     }
 
     
