@@ -29,11 +29,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     override func viewWillAppear(animated: Bool) {
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationChanged:", name: UIDeviceOrientationDidChangeNotification, object: nil)
-    }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationChanged:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        }
     
     override func viewDidAppear(animated: Bool) {
-        self.presentViewController(CameraView(), animated: false, completion: nil)
+//        self.presentViewController(CameraView(), animated: false, completion: nil)
     }
     
     @IBOutlet var btn_Start: UIButton!
@@ -43,12 +43,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-//    override func supportedInterfaceOrientations() -> Int {
-//        return UIInterfaceOrientation.LandscapeLeft.rawValue
-//    }
     
     func startCameraSession() {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
@@ -63,44 +58,41 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             cameraPicker.cameraDevice = .Rear
             cameraPicker.cameraFlashMode = .Off
             
-            cameraPicker.view.center = self.view.center
+            cameraPicker.videoQuality = UIImagePickerControllerQualityType.TypeHigh
             
+            cameraPicker.view.center = self.view.center
+            cameraPicker.view.frame = self.view.bounds
             
             self.view.addSubview(cameraPicker.view)
             
-            
-//            self.presentViewController(cameraPicker, animated: true, completion: {
-//                dispatch_async(dispatch_get_main_queue(), {
-//                    
-//                    let deviceWidth = UIScreen.mainScreen().bounds.width
-//                    let deviceHeight = UIScreen.mainScreen().bounds.height
-//                    
-//                    let imageView_Logo = UIImageView()
-//                    
-//                    imageView_Logo.image = UIImage(named: "HL_Logo")!
-//                    imageView_Logo.frame = CGRectMake(deviceWidth - 80, -10, 70, 124)
-//                    imageView_Logo.layer.shadowColor = UIColor.blackColor().CGColor;
-//                    imageView_Logo.layer.shadowOffset = CGSizeMake(1, 1);
-//                    imageView_Logo.layer.shadowOpacity = 1;
-//                    imageView_Logo.layer.shadowRadius = 2.0;
-//                    imageView_Logo.clipsToBounds = false;
-//
-//                    var button = UIButton()
-//                    button.setTitle("•", forState: .Normal)
-//                    button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-//                    
-//                    button.frame = CGRectMake(deviceWidth - 50, deviceHeight - 30, 50, 30)
-//                    button.addTarget(self, action: "button:", forControlEvents: .TouchUpInside)
-//                    
-//                    
-//                    
-//                    self.cameraPicker.view.addSubview(button)
-//                    self.cameraPicker.view.addSubview(imageView_Logo)
-//                })
-//                
-//            })
-            
-            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                let deviceWidth = UIScreen.mainScreen().bounds.width
+                let deviceHeight = UIScreen.mainScreen().bounds.height
+                
+                let imageView_Logo = UIImageView()
+                
+                imageView_Logo.image = UIImage(named: "HL_Logo")!
+                imageView_Logo.frame = CGRectMake(deviceWidth - 80, -10, 70, 124)
+                imageView_Logo.layer.shadowColor = UIColor.blackColor().CGColor;
+                imageView_Logo.layer.shadowOffset = CGSizeMake(1, 1);
+                imageView_Logo.layer.shadowOpacity = 1;
+                imageView_Logo.layer.shadowRadius = 2.0;
+                imageView_Logo.clipsToBounds = false;
+                
+                var button = UIButton()
+                button.setTitle("•", forState: .Normal)
+                button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+                
+                button.frame = CGRectMake(deviceWidth - 50, deviceHeight - 30, 50, 30)
+                button.addTarget(self, action: "button:", forControlEvents: .TouchUpInside)
+                
+                
+                
+                self.cameraPicker.view.addSubview(button)
+                self.cameraPicker.view.addSubview(imageView_Logo)
+                
+            })
             
             
         } else {
@@ -161,48 +153,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func deviceOrientationChanged(notification: NSNotification) {
         
-        var currentOrientation = UIApplication.sharedApplication().statusBarOrientation
-        
-        switch currentOrientation {
-        case UIInterfaceOrientation.LandscapeLeft:
-            println("Now LandscapeLeft")
-            if self.currentOrientation != "LandscapeLeft" {
-                self.currentOrientation = "LandscapeLeft"
-                println("Now LandscapeLeft, trnasformation prerformed")
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.cameraPicker.view.transform =
-                        CGAffineTransformTranslate(
-                            CGAffineTransformMakeRotation(CGFloat(M_PI/2)), -15, -15)
-//                        CGAffineTransformScale(
-//                            CGAffineTransformTranslate(
-//                                CGAffineTransformMakeRotation(CGFloat(M_PI/2)), -15, -15),
-//                            1.2, 1.2)
-                    self.cameraPicker.view.frame = self.view.bounds
-                })
-            }
-            
-            
-        case UIInterfaceOrientation.Portrait:
-            println("Now Portrait")
-            if self.currentOrientation != "Portrait" {
-                self.currentOrientation = "Portrait"
-                println("Now Portrait, transformation performed")
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.cameraPicker.view.transform = CGAffineTransformTranslate(
-                        CGAffineTransformMakeRotation(0), 0, 0)
-//                        CGAffineTransformScale(
-//                            CGAffineTransformTranslate(
-//                                CGAffineTransformMakeRotation(0), 0, 0),
-//                            1.2, 1.2)
-                    
-                    self.cameraPicker.view.frame = self.view.bounds
-                    
-//                                    self.cameraPicker.view.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2))
-                })
-            }
-            
-        default:
-            break
+        var deviceOrientation = UIApplication.sharedApplication().statusBarOrientation
+        switch deviceOrientation {
+        case .LandscapeLeft:
+            dispatch_async(dispatch_get_main_queue(), {
+                self.cameraPicker.view.transform = CGAffineTransformMakeRotation(CGFloat(M_PI / 2))
+                self.cameraPicker.view.frame = self.view.bounds
+                println("LandscapeLeft: \(self.cameraPicker.view.frame)")
+            })
+        case .Portrait:
+            dispatch_async(dispatch_get_main_queue(), {
+                self.cameraPicker.view.transform = CGAffineTransformMakeRotation(CGFloat(2 * M_PI))
+                self.cameraPicker.view.frame = self.view.bounds
+                println("Portrait: \(self.cameraPicker.view.frame)")
+            })
+        default: break
         }
         
         

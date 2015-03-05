@@ -102,8 +102,17 @@ class CameraView: UIViewController {
     let screenHeight = UIScreen.mainScreen().bounds.size.height
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         if let device = captureDevice {
-            if(device.lockForConfiguration(nil)) {
+            if device.lockForConfiguration(nil) {
+                
+                let touch = touches.first as! UITouch
+                let location = touch.locationInView(touch.window)
+                var focus_x = location.x / screenWidth;
+                var focus_y = location.y / screenHeight;
+                
+                device.focusPointOfInterest = location
                 device.focusMode = .AutoFocus
+                println(location)
+                println(CGPointMake(focus_x, focus_y))
                 device.unlockForConfiguration()
             }
         }
@@ -121,7 +130,7 @@ class CameraView: UIViewController {
     func configureDevice() {
         if let device = captureDevice {
             device.lockForConfiguration(nil)
-            device.focusMode = .AutoFocus
+            device.focusMode = .ContinuousAutoFocus
             device.unlockForConfiguration()
         }
         
