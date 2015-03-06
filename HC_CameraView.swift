@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class CameraView: UIViewController {
+class HC_CameraView: UIViewController {
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
     

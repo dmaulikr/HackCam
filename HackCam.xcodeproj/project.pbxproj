@@ -8,28 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		114200E71A9FC2F900DB5B11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114200E61A9FC2F900DB5B11 /* AppDelegate.swift */; };
-		114200E91A9FC2F900DB5B11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114200E81A9FC2F900DB5B11 /* ViewController.swift */; };
+		114200E91A9FC2F900DB5B11 /* HC_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114200E81A9FC2F900DB5B11 /* HC_MainViewController.swift */; };
 		114200EC1A9FC2F900DB5B11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114200EA1A9FC2F900DB5B11 /* Main.storyboard */; };
 		114200EE1A9FC2F900DB5B11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 114200ED1A9FC2F900DB5B11 /* Images.xcassets */; };
-		114200F11A9FC2F900DB5B11 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114200EF1A9FC2F900DB5B11 /* LaunchScreen.xib */; };
-		11BAFB501A9FF08000F53408 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BAFB4F1A9FF08000F53408 /* BlurView.swift */; };
-		11BAFB521A9FF09300F53408 /* BlurView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BAFB511A9FF09300F53408 /* BlurView.xib */; };
-		11D20DD11AA77DC5003E1403 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D20DD01AA77DC5003E1403 /* CameraView.swift */; };
+		11D20DD11AA77DC5003E1403 /* HC_CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D20DD01AA77DC5003E1403 /* HC_CameraView.swift */; };
+		11DF51B41AA91AA20038BCDA /* HC_WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF51B31AA91AA20038BCDA /* HC_WelcomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		114200E11A9FC2F900DB5B11 /* HackCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		114200E51A9FC2F900DB5B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		114200E61A9FC2F900DB5B11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		114200E81A9FC2F900DB5B11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		114200E81A9FC2F900DB5B11 /* HC_MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HC_MainViewController.swift; sourceTree = "<group>"; };
 		114200EB1A9FC2F900DB5B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		114200ED1A9FC2F900DB5B11 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		114200F01A9FC2F900DB5B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		114200FB1A9FC2F900DB5B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = HackCamTests/Info.plist; sourceTree = "<group>"; };
 		114200FC1A9FC2F900DB5B11 /* HackCamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HackCamTests.swift; path = HackCamTests/HackCamTests.swift; sourceTree = "<group>"; };
-		11BAFB4F1A9FF08000F53408 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
-		11BAFB511A9FF09300F53408 /* BlurView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlurView.xib; sourceTree = "<group>"; };
-		11D20DD01AA77DC5003E1403 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraView.swift; path = ../CameraView.swift; sourceTree = "<group>"; };
+		11D20DD01AA77DC5003E1403 /* HC_CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HC_CameraView.swift; path = ../HC_CameraView.swift; sourceTree = "<group>"; };
+		11DF51B31AA91AA20038BCDA /* HC_WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HC_WelcomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,13 +60,11 @@
 			isa = PBXGroup;
 			children = (
 				114200E61A9FC2F900DB5B11 /* AppDelegate.swift */,
-				114200E81A9FC2F900DB5B11 /* ViewController.swift */,
-				11D20DD01AA77DC5003E1403 /* CameraView.swift */,
-				11BAFB4F1A9FF08000F53408 /* BlurView.swift */,
-				11BAFB511A9FF09300F53408 /* BlurView.xib */,
+				114200E81A9FC2F900DB5B11 /* HC_MainViewController.swift */,
+				11D20DD01AA77DC5003E1403 /* HC_CameraView.swift */,
 				114200EA1A9FC2F900DB5B11 /* Main.storyboard */,
+				11DF51B31AA91AA20038BCDA /* HC_WelcomeView.swift */,
 				114200ED1A9FC2F900DB5B11 /* Images.xcassets */,
-				114200EF1A9FC2F900DB5B11 /* LaunchScreen.xib */,
 				114200E41A9FC2F900DB5B11 /* Supporting Files */,
 			);
 			path = HackCam;
@@ -161,8 +155,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				114200EC1A9FC2F900DB5B11 /* Main.storyboard in Resources */,
-				11BAFB521A9FF09300F53408 /* BlurView.xib in Resources */,
-				114200F11A9FC2F900DB5B11 /* LaunchScreen.xib in Resources */,
 				114200EE1A9FC2F900DB5B11 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,10 +166,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				114200E91A9FC2F900DB5B11 /* ViewController.swift in Sources */,
+				114200E91A9FC2F900DB5B11 /* HC_MainViewController.swift in Sources */,
 				114200E71A9FC2F900DB5B11 /* AppDelegate.swift in Sources */,
-				11BAFB501A9FF08000F53408 /* BlurView.swift in Sources */,
-				11D20DD11AA77DC5003E1403 /* CameraView.swift in Sources */,
+				11DF51B41AA91AA20038BCDA /* HC_WelcomeView.swift in Sources */,
+				11D20DD11AA77DC5003E1403 /* HC_CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,14 +182,6 @@
 				114200EB1A9FC2F900DB5B11 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		114200EF1A9FC2F900DB5B11 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				114200F01A9FC2F900DB5B11 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -288,6 +272,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/HackCam/Info.plist";
@@ -302,6 +287,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/HackCam/Info.plist";

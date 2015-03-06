@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 import AVFoundation
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
     private var cameraPicker = UIImagePickerController()
     private var currentOrientation: String = ""
