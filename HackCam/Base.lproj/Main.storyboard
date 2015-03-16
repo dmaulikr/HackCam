@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SkS-3g-psS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14D98g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SkS-3g-psS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -20,7 +20,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Intro_Background" translatesAutoresizingMaskIntoConstraints="NO" id="9dl-cO-2bN">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iE-qN-Rfn">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iE-qN-Rfn">
                                 <rect key="frame" x="236" y="80" width="129" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="129" id="XlC-zh-ohJ"/>
@@ -36,7 +36,7 @@
                                     <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HackCam 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgE-bz-5Wc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="HackCam 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgE-bz-5Wc">
                                 <rect key="frame" x="170" y="117" width="261" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="261" id="IP5-iM-Zp0"/>
@@ -52,7 +52,7 @@
                                     <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="27"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWm-n5-RJW">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWm-n5-RJW">
                                 <rect key="frame" x="240" y="220" width="120" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="cQF-a8-uw3">
@@ -73,7 +73,7 @@
                                     <action selector="btn_Start_Pressed:" destination="SkS-3g-psS" eventType="touchUpInside" id="SMk-kz-aOu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zc-9T-ep8">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zc-9T-ep8">
                                 <rect key="frame" x="285" y="263" width="31" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="91N-jq-YRs"/>
@@ -129,6 +129,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="btn_Skip" destination="3Zc-9T-ep8" id="2mr-29-uiG"/>
                         <outlet property="btn_Start" destination="GWm-n5-RJW" id="NlH-Cq-bMr"/>
                         <outlet property="img_Background" destination="9dl-cO-2bN" id="h5t-L4-gza"/>
                         <outlet property="label_Title" destination="jgE-bz-5Wc" id="stP-8v-RAF"/>
@@ -137,7 +138,83 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ac0-an-Fpl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-414" y="428"/>
+            <point key="canvasLocation" x="139" y="-992"/>
+        </scene>
+        <!--Tutorial1-->
+        <scene sceneID="FMW-hK-th4">
+            <objects>
+                <viewController storyboardIdentifier="Tutorial1" id="XON-lI-xJ1" customClass="HC_Tutorial1" customModule="HackCam" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iua-DU-xLT"/>
+                        <viewControllerLayoutGuide type="bottom" id="bkb-Wa-yo5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7XR-TU-GkC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Intro_Background" translatesAutoresizingMaskIntoConstraints="NO" id="FIE-hH-aZt">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0A-pG-BrC">
+                                <rect key="frame" x="196" y="51" width="209" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="209" id="Dzc-hC-9yi"/>
+                                    <constraint firstAttribute="height" constant="32" id="nUU-oQ-wBD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Disable your orientation lock and hold your iPhone in landscape (home button to left)." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJi-iz-jec">
+                                <rect key="frame" x="16" y="277" width="568" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="qHj-Mc-3qY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_orientationlock" translatesAutoresizingMaskIntoConstraints="NO" id="DJf-fQ-YQ0">
+                                <rect key="frame" x="260" y="189" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Q9L-ez-zrr"/>
+                                    <constraint firstAttribute="width" constant="80" id="ZB1-Vq-aqi"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="K0A-pG-BrC" secondAttribute="centerX" constant="-0.5" id="6I2-kH-vpv"/>
+                            <constraint firstItem="lJi-iz-jec" firstAttribute="leading" secondItem="7XR-TU-GkC" secondAttribute="leadingMargin" id="6dz-Cn-LHv"/>
+                            <constraint firstItem="FIE-hH-aZt" firstAttribute="bottom" secondItem="bkb-Wa-yo5" secondAttribute="top" id="C1w-SC-8Po"/>
+                            <constraint firstItem="lJi-iz-jec" firstAttribute="trailing" secondItem="7XR-TU-GkC" secondAttribute="trailingMargin" id="FVo-f5-PIa"/>
+                            <constraint firstAttribute="trailing" secondItem="FIE-hH-aZt" secondAttribute="trailing" id="Lv0-xX-mYh"/>
+                            <constraint firstItem="bkb-Wa-yo5" firstAttribute="top" secondItem="lJi-iz-jec" secondAttribute="bottom" constant="432" id="NoC-cN-aNd"/>
+                            <constraint firstItem="FIE-hH-aZt" firstAttribute="top" secondItem="7XR-TU-GkC" secondAttribute="top" id="OBG-Kt-XSY"/>
+                            <constraint firstItem="lJi-iz-jec" firstAttribute="top" secondItem="DJf-fQ-YQ0" secondAttribute="bottom" constant="8" symbolic="YES" id="Z6r-aG-XJF"/>
+                            <constraint firstItem="K0A-pG-BrC" firstAttribute="top" secondItem="Iua-DU-xLT" secondAttribute="bottom" constant="31" id="ZEH-6Q-NiQ"/>
+                            <constraint firstItem="lJi-iz-jec" firstAttribute="centerX" secondItem="K0A-pG-BrC" secondAttribute="centerX" id="daL-78-mCF"/>
+                            <constraint firstAttribute="centerY" secondItem="lJi-iz-jec" secondAttribute="centerY" constant="0.5" id="haq-7X-baM"/>
+                            <constraint firstAttribute="centerX" secondItem="DJf-fQ-YQ0" secondAttribute="centerX" id="iRo-a1-8gQ"/>
+                            <constraint firstItem="FIE-hH-aZt" firstAttribute="leading" secondItem="7XR-TU-GkC" secondAttribute="leading" id="tCw-ch-mfL"/>
+                            <constraint firstItem="lJi-iz-jec" firstAttribute="top" secondItem="K0A-pG-BrC" secondAttribute="bottom" constant="64" id="zNa-cq-rks"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="daL-78-mCF"/>
+                                <exclude reference="zNa-cq-rks"/>
+                                <exclude reference="NoC-cN-aNd"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="img_Background" destination="FIE-hH-aZt" id="aA8-YV-l5M"/>
+                        <outlet property="img_OrientationLock" destination="DJf-fQ-YQ0" id="bnQ-Qd-8ay"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rfH-1D-0Ui" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="789" y="-992"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -203,5 +280,6 @@
     <resources>
         <image name="HL_Logo_Normal" width="1920" height="1080"/>
         <image name="Intro_Background" width="2880" height="1920"/>
+        <image name="img_orientationlock" width="201" height="181"/>
     </resources>
 </document>

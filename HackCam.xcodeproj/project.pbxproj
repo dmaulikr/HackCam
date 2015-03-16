@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11362E211AAF5EB80038A6E3 /* HC_Tutorial1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11362E201AAF5EB80038A6E3 /* HC_Tutorial1.swift */; };
 		114200E71A9FC2F900DB5B11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114200E61A9FC2F900DB5B11 /* AppDelegate.swift */; };
 		114200E91A9FC2F900DB5B11 /* HC_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114200E81A9FC2F900DB5B11 /* HC_MainViewController.swift */; };
 		114200EC1A9FC2F900DB5B11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114200EA1A9FC2F900DB5B11 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11362E201AAF5EB80038A6E3 /* HC_Tutorial1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HC_Tutorial1.swift; sourceTree = "<group>"; };
 		114200E11A9FC2F900DB5B11 /* HackCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		114200E51A9FC2F900DB5B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		114200E61A9FC2F900DB5B11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				11D20DD01AA77DC5003E1403 /* HC_CameraView.swift */,
 				114200EA1A9FC2F900DB5B11 /* Main.storyboard */,
 				11DF51B31AA91AA20038BCDA /* HC_WelcomeView.swift */,
+				11362E201AAF5EB80038A6E3 /* HC_Tutorial1.swift */,
 				114200ED1A9FC2F900DB5B11 /* Images.xcassets */,
 				114200E41A9FC2F900DB5B11 /* Supporting Files */,
 			);
@@ -170,6 +173,7 @@
 				114200E71A9FC2F900DB5B11 /* AppDelegate.swift in Sources */,
 				11DF51B41AA91AA20038BCDA /* HC_WelcomeView.swift in Sources */,
 				11D20DD11AA77DC5003E1403 /* HC_CameraView.swift in Sources */,
+				11362E211AAF5EB80038A6E3 /* HC_Tutorial1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,7 @@ class HC_WelcomeView: UIViewController {
     @IBOutlet var label_Welcometo: UILabel!
     @IBOutlet var label_Title: UILabel!
     @IBOutlet var btn_Start: UIButton!
+    @IBOutlet var btn_Skip: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +80,25 @@ class HC_WelcomeView: UIViewController {
     }
     
     @IBAction func btn_Start_Pressed(sender: AnyObject) {
-        println("Ow")
+        println("Transiting")
+        dispatch_async(dispatch_get_main_queue(), {
+            UIView.animateWithDuration(0.5, animations: {
+                self.btn_Start.alpha = 0
+                self.btn_Skip.alpha  = 0
+                UIView.animateWithDuration(0.5, delay: 0.3, options: nil, animations: {
+                    self.label_Welcometo.center = CGPointMake(self.label_Welcometo.center.x, self.label_Welcometo.center.y - 100)
+                    self.label_Welcometo.alpha = 0
+                    
+                    UIView.animateWithDuration(0.5, delay: 0.2, options: nil, animations: {
+                        self.label_Title.center = CGPointMake(self.label_Title.center.x, self.label_Title.center.y - 100)
+                        self.label_Title.alpha = 0
+                        }, completion: {(Bool) -> Void in
+                            let view_Tutorial1 = self.storyboard!.instantiateViewControllerWithIdentifier("Tutorial1") as! HC_Tutorial1
+                            self.presentViewController(view_Tutorial1, animated: false, completion: nil)
+                    })
+                }, completion: nil)
+            }, completion: nil)
+        })
     }
 
     /*

@@ -96,7 +96,6 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.view.bringSubviewToFront(self.btn_ShowBlur)
                 self.view.bringSubviewToFront(self.img_BottomRightLogo)
                 
-                
             })
             
             
