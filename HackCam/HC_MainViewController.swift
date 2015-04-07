@@ -184,7 +184,18 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func btn_ChangeLogoClicked(sender: AnyObject) {
+        var chooseLogoSource = UIAlertController(title: "Change Logo...", message: "Please use PNG file.", preferredStyle: .ActionSheet)
+        chooseLogoSource.addAction(UIAlertAction(title: "Enter URL", style: .Default, handler: { (action) -> Void in
+            // AlertView to enter url
+        }))
         
+        chooseLogoSource.addAction(UIAlertAction(title: "Choose from Photo Library", style: .Default, handler: { (action) -> Void in
+            
+        }))
+        
+        chooseLogoSource.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        
+        self.presentViewController(chooseLogoSource, animated: true, completion: nil)
     }
 }
 
