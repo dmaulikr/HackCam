@@ -16,6 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        // Determine iPhone Model
+        var systemInfo = [UInt8](count: sizeof(utsname), repeatedValue: 0)
+        let model: String = systemInfo.withUnsafeMutableBufferPointer { (inout body: UnsafeMutableBufferPointer<UInt8>) -> String? in
+            if uname(UnsafeMutablePointer(body.baseAddress)) != 0 {
+                return nil
+            }
+            return String.fromCString(UnsafePointer(body.baseAddress.advancedBy(Int(_SYS_NAMELEN * 4))))
+            }!
+        if String(Array(model)[6]).toInt() >= 7 {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "iPhone6andLater")
+        } else {
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "iPhone6andLater")
+        }
+        
+        
         return true
     }
 

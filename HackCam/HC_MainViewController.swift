@@ -16,7 +16,8 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     private var currentOrientation: String = ""
     private var currentOrientation_Indicator: Bool = true
     
-
+    @IBOutlet var btn_Start: UIButton!
+    @IBOutlet var btn_ChangeLogo: UIButton!
     @IBOutlet var btn_ShowBlur: UIButton!
     @IBOutlet var img_BottomRightLogo: UIImageView!
     
@@ -40,7 +41,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
 //        self.presentViewController(CameraView(), animated: false, completion: nil)
     }
     
-    @IBOutlet var btn_Start: UIButton!
+    
 
     @IBAction func btn_StartClicked(sender: AnyObject) {
         startCameraSession()
@@ -180,7 +181,9 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
         default: break
         }
         
-        
+    }
+    
+    @IBAction func btn_ChangeLogoClicked(sender: AnyObject) {
         
     }
 }

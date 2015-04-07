@@ -47,7 +47,8 @@ class HC_WelcomeView: UIViewController {
         btn_Start.backgroundColor = UIColor(red: 0, green: 192/255, blue: 209/255, alpha: 0.20)
         let blurEffect = UIBlurEffect(style: .Light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = btn_Start.bounds
+        let blurEffectView_Frame = CGRectMake(btn_Start.bounds.origin.x, btn_Start.bounds.origin.y, 150, 45)
+        blurEffectView.frame = blurEffectView_Frame
         blurEffectView.alpha = 0.75
         blurEffectView.layer.cornerRadius = 3
         blurEffectView.userInteractionEnabled = false
@@ -93,12 +94,16 @@ class HC_WelcomeView: UIViewController {
                         self.label_Title.center = CGPointMake(self.label_Title.center.x, self.label_Title.center.y - 100)
                         self.label_Title.alpha = 0
                         }, completion: {(Bool) -> Void in
-                            let view_Tutorial1 = self.storyboard!.instantiateViewControllerWithIdentifier("Tutorial1") as! HC_Tutorial1
+                            let view_Tutorial1 = self.storyboard!.instantiateViewControllerWithIdentifier("Tutorial1") as HC_Tutorial1
                             self.presentViewController(view_Tutorial1, animated: false, completion: nil)
                     })
                 }, completion: nil)
             }, completion: nil)
         })
+    }
+    
+    func finishTutorial() {
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "tutorialSkipped")
     }
 
     /*
