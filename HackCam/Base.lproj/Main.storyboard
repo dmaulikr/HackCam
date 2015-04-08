@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SkS-3g-psS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SkS-3g-psS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -92,6 +92,9 @@
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="185" y="263" width="31" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="btn_Skip_Pressed:" destination="SkS-3g-psS" eventType="touchUpInside" id="mtL-xv-Jqt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -502,18 +505,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d82-dT-trL">
-                                <rect key="frame" x="16" y="562" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9u9-aM-Z4n"/>
-                                    <constraint firstAttribute="width" constant="30" id="X6Z-vP-udq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="ø">
-                                    <color key="titleColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Intro_Background" translatesAutoresizingMaskIntoConstraints="NO" id="vFW-95-cN9">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yA-Yu-9d2">
                                 <rect key="frame" x="254" y="251" width="93" height="30"/>
                                 <state key="normal" title="Change Logo">
@@ -534,7 +528,7 @@
                                     <action selector="btn_StartClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qEY-tv-MaT"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HL_Logo_Normal" translatesAutoresizingMaskIntoConstraints="NO" id="ZC2-f2-s7S">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HL_Logo_Normal" translatesAutoresizingMaskIntoConstraints="NO" id="ZC2-f2-s7S">
                                 <rect key="frame" x="497" y="522" width="87" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="87" id="Cwk-Rh-Y3b"/>
@@ -547,14 +541,16 @@
                             <constraint firstItem="9yA-Yu-9d2" firstAttribute="top" secondItem="VQo-Lc-lj9" secondAttribute="bottom" constant="27" id="5Fg-pU-8jU"/>
                             <constraint firstItem="VQo-Lc-lj9" firstAttribute="centerX" secondItem="9yA-Yu-9d2" secondAttribute="centerX" id="84c-P2-QSI"/>
                             <constraint firstItem="VQo-Lc-lj9" firstAttribute="centerX" secondItem="9yA-Yu-9d2" secondAttribute="centerX" constant="0.5" id="DYJ-oQ-X2T"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="d82-dT-trL" secondAttribute="bottom" constant="8" id="Dc4-SL-LId"/>
                             <constraint firstAttribute="centerY" secondItem="9yA-Yu-9d2" secondAttribute="centerY" constant="34" id="ECv-Zg-zm9"/>
                             <constraint firstItem="ZC2-f2-s7S" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="FT2-b0-bjz"/>
+                            <constraint firstItem="vFW-95-cN9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Gdp-qD-ab0"/>
+                            <constraint firstItem="vFW-95-cN9" firstAttribute="centerX" secondItem="VQo-Lc-lj9" secondAttribute="centerX" id="JfJ-4b-P2T"/>
+                            <constraint firstItem="vFW-95-cN9" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="KDZ-Fe-FBL"/>
                             <constraint firstItem="VQo-Lc-lj9" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="M4a-cR-XTQ"/>
                             <constraint firstItem="VQo-Lc-lj9" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="185" id="WVw-cv-JOb"/>
                             <constraint firstItem="9yA-Yu-9d2" firstAttribute="top" secondItem="VQo-Lc-lj9" secondAttribute="bottom" constant="15" id="lGH-8a-FIx"/>
+                            <constraint firstItem="vFW-95-cN9" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="q3O-rK-zx7"/>
                             <constraint firstAttribute="bottom" secondItem="ZC2-f2-s7S" secondAttribute="bottom" constant="8" id="r9K-Q9-VMw"/>
-                            <constraint firstItem="d82-dT-trL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="u0K-CS-RRj"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -576,8 +572,8 @@
                     </view>
                     <connections>
                         <outlet property="btn_ChangeLogo" destination="9yA-Yu-9d2" id="eFc-b9-crH"/>
-                        <outlet property="btn_ShowBlur" destination="d82-dT-trL" id="zha-ma-xDk"/>
                         <outlet property="btn_Start" destination="VQo-Lc-lj9" id="GhC-tx-PLn"/>
+                        <outlet property="img_Background" destination="vFW-95-cN9" id="rjE-31-Jqa"/>
                         <outlet property="img_BottomRightLogo" destination="ZC2-f2-s7S" id="HLS-GC-t9U"/>
                     </connections>
                 </viewController>

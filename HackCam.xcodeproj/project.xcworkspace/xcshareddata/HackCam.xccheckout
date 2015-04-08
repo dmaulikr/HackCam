@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>52746570-FB7C-496A-9F9C-586EB40B2BD6</string>
 	<key>IDESourceControlProjectName</key>
-	<string>HackCam</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>277AA38709DEBD8EFA62D898EFB350BA444A126B</key>
 		<string>https://github.com/clarenceji/HackCam.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>HackCam.xcodeproj</string>
+	<string>HackCam.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>277AA38709DEBD8EFA62D898EFB350BA444A126B</key>

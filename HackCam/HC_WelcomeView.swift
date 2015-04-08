@@ -94,12 +94,19 @@ class HC_WelcomeView: UIViewController {
                         self.label_Title.center = CGPointMake(self.label_Title.center.x, self.label_Title.center.y - 100)
                         self.label_Title.alpha = 0
                         }, completion: {(Bool) -> Void in
-                            let view_Tutorial1 = self.storyboard!.instantiateViewControllerWithIdentifier("Tutorial1") as HC_Tutorial1
+                            let view_Tutorial1 = self.storyboard!.instantiateViewControllerWithIdentifier("Tutorial1") as! HC_Tutorial1
                             self.presentViewController(view_Tutorial1, animated: false, completion: nil)
                     })
                 }, completion: nil)
             }, completion: nil)
         })
+    }
+    
+    @IBAction func btn_Skip_Pressed(sender: AnyObject) {
+        finishTutorial()
+        
+        let mainView = self.storyboard!.instantiateViewControllerWithIdentifier("CameraView") as! HC_MainViewController
+        self.presentViewController(mainView, animated: true, completion: nil)
     }
     
     func finishTutorial() {

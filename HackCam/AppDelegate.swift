@@ -31,6 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
+        if NSUserDefaults.standardUserDefaults().boolForKey("tutorialSkipped") {
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("CameraView") as! HC_MainViewController
+            
+            self.window?.rootViewController = viewController
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 

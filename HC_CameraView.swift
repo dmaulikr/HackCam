@@ -100,11 +100,11 @@ class HC_CameraView: UIViewController {
     
     let screenWidth = UIScreen.mainScreen().bounds.size.width
     let screenHeight = UIScreen.mainScreen().bounds.size.height
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         if let device = captureDevice {
             if device.lockForConfiguration(nil) {
                 
-                let touch = touches.anyObject() as UITouch
+                let touch = touches.first as! UITouch
                 let location = touch.locationInView(touch.window)
                 var focus_x = location.x / screenWidth;
                 var focus_y = location.y / screenHeight;
@@ -118,8 +118,8 @@ class HC_CameraView: UIViewController {
         }
     }
     
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-        var anyTouch = touches.anyObject() as UITouch
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        var anyTouch = touches.first as! UITouch
         var touchPercent = anyTouch.locationInView(self.view).x / screenWidth
         if self.currentOrientation == "LandscapeLeft" {
             touchPercent = anyTouch.locationInView(self.view).y / screenHeight
