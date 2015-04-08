@@ -45,6 +45,8 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     @IBAction func btn_StartClicked(sender: AnyObject) {
         startCameraSession()
+        self.btn_Start.hidden = true
+        self.btn_ChangeLogo.hidden = true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
