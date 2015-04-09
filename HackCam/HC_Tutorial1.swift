@@ -135,6 +135,7 @@ class HC_Tutorial1: UIViewController {
     }
     
     func finishTutorial() {
+        println("USERDEFAULTS")
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "tutorialSkipped")
         let cameraView = self.storyboard!.instantiateViewControllerWithIdentifier("CameraView") as! HC_MainViewController
         self.presentViewController(cameraView, animated: true, completion: nil)
