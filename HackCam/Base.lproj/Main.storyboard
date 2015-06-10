@@ -4,6 +4,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="MyriadPro-Regular.otf">
+            <string>MyriadPro-Regular</string>
+            <string>MyriadPro-Regular</string>
+            <string>MyriadPro-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Welcome View-->
         <scene sceneID="1GQ-Vl-h3R">
@@ -509,7 +516,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yA-Yu-9d2">
-                                <rect key="frame" x="254" y="251" width="93" height="30"/>
+                                <rect key="frame" x="256" y="252" width="89" height="28"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
                                 <state key="normal" title="Change Logo">
                                     <color key="titleColor" red="1" green="0.82745098039999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -519,7 +527,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQo-Lc-lj9">
-                                <rect key="frame" x="255" y="206" width="91" height="30"/>
+                                <rect key="frame" x="257" y="209" width="87" height="28"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
                                 <state key="normal" title="Start Camera">
                                     <color key="titleColor" red="1" green="0.82745098039999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -535,9 +544,9 @@
                                     <constraint firstAttribute="height" constant="70" id="VNX-tY-PmM"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint: Tap logo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gX-iT-sD5">
-                                <rect key="frame" x="247" y="337" width="107" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint: Tap logo for blurred mode." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gX-iT-sD5">
+                                <rect key="frame" x="188" y="337" width="226" height="17"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -557,7 +566,7 @@
                             <constraint firstItem="9yA-Yu-9d2" firstAttribute="top" secondItem="VQo-Lc-lj9" secondAttribute="bottom" constant="15" id="lGH-8a-FIx"/>
                             <constraint firstItem="vFW-95-cN9" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="q3O-rK-zx7"/>
                             <constraint firstAttribute="bottom" secondItem="ZC2-f2-s7S" secondAttribute="bottom" constant="8" id="r9K-Q9-VMw"/>
-                            <constraint firstItem="1gX-iT-sD5" firstAttribute="top" secondItem="9yA-Yu-9d2" secondAttribute="bottom" constant="56" id="thy-Bf-4JC"/>
+                            <constraint firstItem="1gX-iT-sD5" firstAttribute="top" secondItem="9yA-Yu-9d2" secondAttribute="bottom" constant="57" id="thy-Bf-4JC"/>
                             <constraint firstItem="1gX-iT-sD5" firstAttribute="centerX" secondItem="9yA-Yu-9d2" secondAttribute="centerX" id="xS6-vi-SHH"/>
                         </constraints>
                         <variation key="default">
