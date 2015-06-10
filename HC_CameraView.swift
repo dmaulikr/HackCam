@@ -67,15 +67,8 @@ class HC_CameraView: UIViewController {
                 self.currentOrientation = "LandscapeLeft"
                 println("Now LandscapeLeft, trnasformation prerformed")
                 dispatch_async(dispatch_get_main_queue(), {
-//                    self.view.transform =
-//                        CGAffineTransformTranslate(
-//                            CGAffineTransformMakeRotation(CGFloat(M_PI/2)), -15, -15)
-                    
-                    println(self.previewLayer?.frame)
                     self.previewLayer?.frame = self.view.bounds
-                    //                    self.previewLayer?.center
                     self.previewLayer?.videoGravity = AVLayerVideoGravityResize
-                    println(self.previewLayer?.frame)
                 })
             }
             
@@ -156,39 +149,6 @@ class HC_CameraView: UIViewController {
     
     
     func deviceOrientationChanged(notification: NSNotification) {
-        
-//        var currentOrientation = UIApplication.sharedApplication().statusBarOrientation
-//        
-//        switch currentOrientation {
-//        case UIInterfaceOrientation.LandscapeLeft:
-//            println("Now LandscapeLeft")
-//            if self.currentOrientation != "LandscapeLeft" {
-//                self.currentOrientation = "LandscapeLeft"
-//                println("Now LandscapeLeft, trnasformation prerformed")
-//                dispatch_async(dispatch_get_main_queue(), {
-//                    self.view.transform =
-//                        CGAffineTransformTranslate(
-//                            CGAffineTransformMakeRotation(CGFloat(M_PI/2)), -15, -15)
-//                    self.previewLayer!.frame = UIScreen.mainScreen().bounds
-//                })
-//            }
-//            
-//            
-//        case UIInterfaceOrientation.Portrait:
-//            println("Now Portrait")
-//            if self.currentOrientation != "Portrait" {
-//                self.currentOrientation = "Portrait"
-//                println("Now Portrait, transformation performed")
-//                dispatch_async(dispatch_get_main_queue(), {
-//                    self.view.transform = CGAffineTransformTranslate(
-//                        CGAffineTransformMakeRotation(0), 0, 0)
-//                    self.previewLayer!.frame = UIScreen.mainScreen().bounds
-//                })
-//            }
-//            
-//        default:
-//            break
-//        }
         
         var deviceOrientation = UIApplication.sharedApplication().statusBarOrientation
         switch deviceOrientation {

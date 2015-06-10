@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SkS-3g-psS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SkS-3g-psS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -535,6 +535,12 @@
                                     <constraint firstAttribute="height" constant="70" id="VNX-tY-PmM"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint: Tap logo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gX-iT-sD5">
+                                <rect key="frame" x="247" y="337" width="107" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -551,6 +557,8 @@
                             <constraint firstItem="9yA-Yu-9d2" firstAttribute="top" secondItem="VQo-Lc-lj9" secondAttribute="bottom" constant="15" id="lGH-8a-FIx"/>
                             <constraint firstItem="vFW-95-cN9" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="q3O-rK-zx7"/>
                             <constraint firstAttribute="bottom" secondItem="ZC2-f2-s7S" secondAttribute="bottom" constant="8" id="r9K-Q9-VMw"/>
+                            <constraint firstItem="1gX-iT-sD5" firstAttribute="top" secondItem="9yA-Yu-9d2" secondAttribute="bottom" constant="56" id="thy-Bf-4JC"/>
+                            <constraint firstItem="1gX-iT-sD5" firstAttribute="centerX" secondItem="9yA-Yu-9d2" secondAttribute="centerX" id="xS6-vi-SHH"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -575,6 +583,7 @@
                         <outlet property="btn_Start" destination="VQo-Lc-lj9" id="GhC-tx-PLn"/>
                         <outlet property="img_Background" destination="vFW-95-cN9" id="rjE-31-Jqa"/>
                         <outlet property="img_BottomRightLogo" destination="ZC2-f2-s7S" id="HLS-GC-t9U"/>
+                        <outlet property="label_Hint" destination="1gX-iT-sD5" id="8O2-Ho-QmT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

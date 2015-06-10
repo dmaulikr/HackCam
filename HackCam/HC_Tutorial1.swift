@@ -20,7 +20,7 @@ class HC_Tutorial1: UIViewController {
     
     var currentStep = 0
     var str_SecondStep = "2. Connect your iPhone to your Mac. Open QuickTime Player on Mac."
-    var str_ThirdStep = "3. On QuickTime Player menu bar, click File > New Screen Recording. Click the arrow beside the recording button and choose your iPhone."
+    var str_ThirdStep = "3. On QuickTime Player menu bar, click File > New Movie Recording. Click the arrow beside the recording button and choose your iPhone."
     var str_FourthStep = "4. For maximum quality, you can turn on 60 FPS recording in your phone settings."
     
     override func viewDidLoad() {

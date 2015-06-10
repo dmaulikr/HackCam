@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  SimpleCamera
+//  HackCam
 //
 //  Created by Clarence Ji on 2/26/15.
 //  Copyright (c) 2015 Clarence Ji. All rights reserved.
@@ -24,11 +24,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             return String.fromCString(UnsafePointer(body.baseAddress.advancedBy(Int(_SYS_NAMELEN * 4))))
             }!
-        if String(Array(model)[6]).toInt() >= 7 {
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "iPhone6andLater")
+        println(Array(model))
+        let modelArray = Array(model)
+        if modelArray.count > 6 {
+            if String(Array(model)[6]).toInt() >= 7 {
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "iPhone6andLater")
+            } else {
+                NSUserDefaults.standardUserDefaults().setBool(false, forKey: "iPhone6andLater")
+            }
         } else {
             NSUserDefaults.standardUserDefaults().setBool(false, forKey: "iPhone6andLater")
         }
+        
         
         
         if NSUserDefaults.standardUserDefaults().boolForKey("tutorialSkipped") {
