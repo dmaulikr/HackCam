@@ -23,6 +23,12 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var img_Background: UIImageView!
     @IBOutlet var label_Hint: UILabel!
     
+    private var wormhole: MMWormhole!
+    
+    // MARK: - Bool validations
+    private var isBlurModeOn = false
+    private var isCameraSession = false
+    
     // MARK: - Motion Effect Variables
     private var verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
     private var horizontalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
@@ -31,13 +37,19 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     // MARK: - View Controller Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        registerWatchNotification()
+        
         if UIApplication.sharedApplication().statusBarOrientation == .Portrait {
             currentOrientation = "Portrait"
         } else {
             currentOrientation = "LandscapeLeft"
         }
         
-        if let data: NSData = NSUserDefaults.standardUserDefaults().objectForKey("storedLogoImage") as? NSData {
+        // Create and share access to an NSUserDefaults object.
+        let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit")
+        
+        if let data: NSData = userDefaults!.objectForKey("storedLogoImage") as? NSData {
             let newImage = UIImage(data: data)
             if newImage!.size.width / newImage!.size.height >= 1.8 {
                 self.img_BottomRightLogo.frame = CGRectMake(self.img_BottomRightLogo.frame.origin.x - 50, self.img_BottomRightLogo.frame.origin.y, self.img_BottomRightLogo.frame.size.width + 50, self.img_BottomRightLogo.frame.height)
@@ -54,7 +66,20 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationChanged:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActive:", name: UIApplicationDidBecomeActiveNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
+
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+       
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -64,6 +89,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     // MARK: - Start button clicked
     @IBAction func btn_StartClicked(sender: AnyObject) {
         startCameraSession()
+        
         self.btn_Start.hidden = true
         self.btn_ChangeLogo.hidden = true
         self.label_Hint.hidden = true
@@ -73,12 +99,9 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.didReceiveMemoryWarning()
     }
     
-    
-    
     // MARK: - Blur View and Logo
     private var blurView: UIVisualEffectView!
     private var imageView_LogoBig: UIImageView!
-    
     
     func showBlurView(recog: UIGestureRecognizer) {
         let blurEffect = UIBlurEffect(style: .Light)
@@ -86,8 +109,8 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
         blurView.frame = self.view.bounds
         blurView.alpha = 0
         
-        
-        if let data: NSData = NSUserDefaults.standardUserDefaults().objectForKey("storedLogoImage") as? NSData {
+        let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit")
+        if let data: NSData = userDefaults!.objectForKey("storedLogoImage") as? NSData {
             self.imageView_LogoBig = UIImageView(image: UIImage(data: data))
             self.imageView_LogoBig.contentMode = .ScaleAspectFit
             self.imageView_LogoBig.frame = CGRectMake(0, 0, 180, 180)
@@ -119,6 +142,8 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
         let recog_Dismiss = UITapGestureRecognizer()
         recog_Dismiss.addTarget(self, action: "dismissBlurView:")
         blurView.addGestureRecognizer(recog_Dismiss)
+        
+        isBlurModeOn = true
      }
     
     func dismissBlurView(recog: UIGestureRecognizer) {
@@ -131,10 +156,44 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
                     self.blurView.removeFromSuperview()
                     self.imageView_LogoBig.removeFromSuperview()
                     self.blurView.removeGestureRecognizer(recog)
+                    self.isBlurModeOn = false
             })
             
         })
         
+    }
+    
+    // MARK: - App Lifecycle
+    
+    func applicationDidBecomeActive(notification: NSNotification) {
+        println("start application listening")
+        registerWatchNotification()
+    }
+    
+    func applicationDidEnterBackground(notification: NSNotification) {
+        println("stop listening for presentation?")
+        if wormhole != nil {
+            wormhole.stopListeningForMessageWithIdentifier("blurMode")
+        }
+    }
+    
+    private func registerWatchNotification() {
+        // Register notification with Apple Watch
+        wormhole = MMWormhole(applicationGroupIdentifier: "group.hackcam.watchKit", optionalDirectory: nil)
+        wormhole.listenForMessageWithIdentifier("blurMode", listener: { (messageObject) -> Void in
+            if let message: AnyObject = messageObject {
+                let isPresent = message["value"] as! Bool
+                if isPresent {
+                    if !self.isBlurModeOn && self.img_BottomRightLogo != nil && self.isCameraSession {
+                        self.showBlurView(self.img_BottomRightLogo.gestureRecognizers?.first as! UITapGestureRecognizer)
+                    }
+                } else {
+                    if self.isBlurModeOn && self.blurView != nil && self.isCameraSession {
+                        self.dismissBlurView(self.blurView.gestureRecognizers?.first as! UITapGestureRecognizer)
+                    }
+                }
+            }
+        })
     }
     
     // MARK: - Device Orientation
@@ -200,8 +259,6 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let deviceWidth = UIScreen.mainScreen().bounds.width
                 let deviceHeight = UIScreen.mainScreen().bounds.height
                 
-                
-                
                 self.img_BottomRightLogo.layer.shadowColor = UIColor.blackColor().CGColor;
                 self.img_BottomRightLogo.layer.shadowOffset = CGSizeZero;
                 self.img_BottomRightLogo.layer.shadowOpacity = 1;
@@ -209,6 +266,8 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.img_BottomRightLogo.clipsToBounds = false;
                 
                 self.view.bringSubviewToFront(self.img_BottomRightLogo)
+                
+                self.isCameraSession = true
                 
             })
             
@@ -223,6 +282,9 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
             
         } else {
             NSLog("Can't open camera.")
+            
+            // DEBUG
+            self.isCameraSession = true
         }
     }
     
@@ -243,7 +305,8 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         let data = UIImagePNGRepresentation(image)
-        NSUserDefaults.standardUserDefaults().setObject(data, forKey: "storedLogoImage")
+        let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit")
+        userDefaults!.setObject(data, forKey: "storedLogoImage")
         self.img_BottomRightLogo.image = image
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -304,7 +367,8 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
                     image = UIImage(data: data)
                     loadingIndicator.stopAnimating()
                     
-                    NSUserDefaults.standardUserDefaults().setValue(data, forKey: "storedLogoImage")
+                    let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit")
+                    userDefaults!.setValue(data, forKey: "storedLogoImage")
                     dispatch_async(dispatch_get_main_queue(), {
                         self.img_BottomRightLogo.image = image
                     })

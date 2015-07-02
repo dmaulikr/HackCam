@@ -23,10 +23,14 @@ class HC_Tutorial1: UIViewController {
     var str_ThirdStep = "3. On QuickTime Player menu bar, click File > New Movie Recording. Click the arrow beside the recording button and choose your iPhone."
     var str_FourthStep = "4. For maximum quality, you can turn on 60 FPS recording in your phone settings."
     
+    private var wormhole: MMWormhole!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.frame = UIScreen.mainScreen().bounds
+        
+        wormhole = MMWormhole(applicationGroupIdentifier: "group.hackcam.watchKit", optionalDirectory: nil)
         
         // Parallax Effect
         var verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
@@ -135,8 +139,11 @@ class HC_Tutorial1: UIViewController {
     }
     
     func finishTutorial() {
-        println("USERDEFAULTS")
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "tutorialSkipped")
+        println("send message")
+        wormhole.passMessageObject(["value":true], identifier: "tutorial")
+        
+        NSUserDefaults(suiteName: "group.hackcam.watchKit")?.setBool(true, forKey: "tutorialSkipped")
+        
         let cameraView = self.storyboard!.instantiateViewControllerWithIdentifier("CameraView") as! HC_MainViewController
         self.presentViewController(cameraView, animated: true, completion: nil)
     }

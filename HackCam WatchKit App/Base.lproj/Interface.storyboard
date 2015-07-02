@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JvX-Fp-95M">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--HackCam-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="mainView" title="HackCam" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HackCam_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group width="1" height="1" alignment="center" verticalAlignment="center" layout="vertical" id="VEw-kf-BRS">
+                            <items>
+                                <group width="1" alignment="center" layout="vertical" spacing="5" id="iwV-0E-hLg">
+                                    <items>
+                                        <label alignment="center" verticalAlignment="bottom" text="1:15" id="EZV-lt-DWr">
+                                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                        </label>
+                                        <imageView alignment="center" image="HackLondon" contentMode="scaleAspectFit" id="CLS-7n-21y"/>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
+                                </group>
+                                <label alignment="center" verticalAlignment="bottom" text="Please start a camera session to begin." textAlignment="center" numberOfLines="3" id="zZF-Fb-lX6">
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                                <button width="1" alignment="left" verticalAlignment="bottom" hidden="YES" title="Begin" id="eXS-6i-rlW">
+                                    <color key="titleColor" red="0.23921568630000001" green="0.78823529410000004" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="beginTimer" destination="AgC-eL-Hgc" id="kao-Ov-co3"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="3"/>
+                        </group>
+                    </items>
+                    <menu key="menu" id="Btf-tn-ZPa">
+                        <items>
+                            <menuItem title="Timer" image="timer" id="OaQ-Fv-xX5">
+                                <connections>
+                                    <action selector="openTimer" destination="AgC-eL-Hgc" id="ihy-pZ-xsy"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="btnBegin" destination="eXS-6i-rlW" id="bTZ-8r-etF"/>
+                        <outlet property="imgLogo" destination="CLS-7n-21y" id="ymx-NL-LvP"/>
+                        <outlet property="lblDescription" destination="zZF-Fb-lX6" id="khS-t6-YSi"/>
+                        <outlet property="lblTimer" destination="EZV-lt-DWr" id="Up9-Uh-Lmz"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="164" y="246"/>
+        </scene>
+        <!--timerView-->
+        <scene sceneID="KrH-Md-D6B">
+            <objects>
+                <controller identifier="timerView" id="h5z-Gn-Asj" customClass="TimerInterfaceController" customModule="HackCam_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="left" verticalAlignment="center" layout="vertical" id="cBg-Kd-u9O">
+                            <items>
+                                <group width="1" alignment="left" layout="vertical" spacing="15" id="plV-Nm-cfg">
+                                    <items>
+                                        <label width="1" alignment="left" text="Set the time for the presentations." numberOfLines="3" id="Dd8-Gj-Zgw">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                </group>
+                                <group width="1" alignment="center" verticalAlignment="center" id="xsi-Ct-rVo">
+                                    <items>
+                                        <button width="30" height="30" alignment="left" verticalAlignment="center" backgroundImage="negative" id="6Sd-TR-czU">
+                                            <connections>
+                                                <action selector="removeTime" destination="h5z-Gn-Asj" id="MFJ-W0-BcO"/>
+                                            </connections>
+                                        </button>
+                                        <label alignment="center" verticalAlignment="center" text="1:15" id="aeV-uS-CWr">
+                                            <fontDescription key="font" type="system" pointSize="30"/>
+                                        </label>
+                                        <button width="30" height="30" alignment="right" verticalAlignment="center" backgroundImage="plus" id="UOJ-4t-Ndj">
+                                            <connections>
+                                                <action selector="addTime" destination="h5z-Gn-Asj" id="IUf-hI-x1k"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                </group>
+                                <button width="1" alignment="left" verticalAlignment="bottom" title="Update" id="s0Y-rZ-s9Q">
+                                    <color key="titleColor" red="0.23921568630000001" green="0.78823529410000004" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="updateTime" destination="h5z-Gn-Asj" id="FPj-Co-97D"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <edgeInsets key="margins" left="3" right="3" top="0.0" bottom="3"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="lblTimer" destination="aeV-uS-CWr" id="zfH-8D-aKa"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="364" y="246"/>
+        </scene>
+        <!--HackCam-->
+        <scene sceneID="5FZ-ZY-Ule">
+            <objects>
+                <controller identifier="welcome" title="HackCam" id="JvX-Fp-95M" customClass="WelcomeInterfaceController" customModule="HackCam_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" verticalAlignment="center" layout="vertical" spacing="15" id="vAE-U7-acG">
+                            <items>
+                                <imageView alignment="center" image="iphone" id="pRE-dl-ni2"/>
+                                <label alignment="center" text="Please complete the tutorial on your iPhone." textAlignment="center" numberOfLines="3" id="LwC-37-09c">
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-19" y="246"/>
+        </scene>
+        <!--Glance Interface Controller-->
+        <scene sceneID="rjY-Ar-IMT">
+            <objects>
+                <glanceController spacing="0.0" bottomTemplateType="largeBody1Group" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="HackCam_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group alignment="left" layout="vertical" id="pdS-MR-0Xp">
+                            <items>
+                                <imageView width="55" height="41" alignment="left" verticalAlignment="center" image="HackLondon" contentMode="scaleAspectFill" id="suK-Zo-ipQ"/>
+                            </items>
+                        </group>
+                        <label alignment="left" text="1:15" id="8Qk-F1-tDm"/>
+                        <label alignment="left" text="ELAPSE TIME" id="bh5-Oy-sbq">
+                            <color key="textColor" red="0.23921568630000001" green="0.78823529410000004" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
+                        <group alignment="left" layout="vertical" id="eew-Gs-W6Y">
+                            <items>
+                                <label alignment="left" text="The timer is currently set to 1 minute. Change it on your iPhone." numberOfLines="4" id="i2O-cE-G5H">
+                                    <fontDescription key="font" type="system" pointSize="12"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="imgLogo" destination="suK-Zo-ipQ" id="jJS-NS-VuU"/>
+                        <outlet property="lblDesc" destination="i2O-cE-G5H" id="yKn-lx-xBB"/>
+                        <outlet property="lblTimer" destination="8Qk-F1-tDm" id="RFR-8S-dV5"/>
+                    </connections>
+                </glanceController>
+            </objects>
+            <point key="canvasLocation" x="164" y="509"/>
+        </scene>
+    </scenes>
+</document>

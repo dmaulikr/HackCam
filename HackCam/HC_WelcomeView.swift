@@ -16,10 +16,14 @@ class HC_WelcomeView: UIViewController {
     @IBOutlet var btn_Start: UIButton!
     @IBOutlet var btn_Skip: UIButton!
     
+    private var wormhole: MMWormhole!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.frame = UIScreen.mainScreen().bounds
+        
+        wormhole = MMWormhole(applicationGroupIdentifier: "group.hackcam.watchKit", optionalDirectory: nil)
         
         // Parallax Effect
         var verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
@@ -32,9 +36,6 @@ class HC_WelcomeView: UIViewController {
         horizontalMotionEffect.maximumRelativeValue = 15
         img_Background.transform = CGAffineTransformMakeScale(1.05, 1.05)
         img_Background.motionEffects = [motionEffectGroup]
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,6 +104,8 @@ class HC_WelcomeView: UIViewController {
     }
     
     @IBAction func btn_Skip_Pressed(sender: AnyObject) {
+        wormhole.passMessageObject(["value":true], identifier: "tutorial")
+        
         finishTutorial()
         
         let mainView = self.storyboard!.instantiateViewControllerWithIdentifier("CameraView") as! HC_MainViewController
@@ -110,7 +113,7 @@ class HC_WelcomeView: UIViewController {
     }
     
     func finishTutorial() {
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "tutorialSkipped")
+        NSUserDefaults(suiteName: "group.hackcam.watchKit")?.setBool(true, forKey: "tutorialSkipped")
     }
 
     /*
