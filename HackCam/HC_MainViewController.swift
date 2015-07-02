@@ -24,6 +24,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var label_Hint: UILabel!
     
     private var wormhole: MMWormhole!
+    private let groupID = "group.a.HackCam.WatchKit"
     
     // MARK: - Bool validations
     private var isBlurModeOn = false
@@ -47,7 +48,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
         // Create and share access to an NSUserDefaults object.
-        let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit")
+        let userDefaults = NSUserDefaults(suiteName: self.groupID)
         
         if let data: NSData = userDefaults!.objectForKey("storedLogoImage") as? NSData {
             let newImage = UIImage(data: data)
@@ -109,7 +110,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
         blurView.frame = self.view.bounds
         blurView.alpha = 0
         
-        let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit")
+        let userDefaults = NSUserDefaults(suiteName: self.groupID)
         if let data: NSData = userDefaults!.objectForKey("storedLogoImage") as? NSData {
             self.imageView_LogoBig = UIImageView(image: UIImage(data: data))
             self.imageView_LogoBig.contentMode = .ScaleAspectFit
@@ -179,7 +180,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     private func registerWatchNotification() {
         // Register notification with Apple Watch
-        wormhole = MMWormhole(applicationGroupIdentifier: "group.hackcam.watchKit", optionalDirectory: nil)
+        wormhole = MMWormhole(applicationGroupIdentifier: self.groupID, optionalDirectory: nil)
         wormhole.listenForMessageWithIdentifier("blurMode", listener: { (messageObject) -> Void in
             if let message: AnyObject = messageObject {
                 let isPresent = message["value"] as! Bool
@@ -286,6 +287,10 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
             // DEBUG
             self.isCameraSession = true
         }
+        
+        // Call notification
+        self.wormhole.passMessageObject(["value":true], identifier: "open")
+        NSUserDefaults(suiteName: "group.a.HackCam.WatchKit")?.setBool(true, forKey: "open")
     }
     
     func startPhotoPickerSession() {
@@ -305,7 +310,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         let data = UIImagePNGRepresentation(image)
-        let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit")
+        let userDefaults = NSUserDefaults(suiteName: self.groupID)
         userDefaults!.setObject(data, forKey: "storedLogoImage")
         self.img_BottomRightLogo.image = image
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -367,7 +372,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
                     image = UIImage(data: data)
                     loadingIndicator.stopAnimating()
                     
-                    let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit")
+                    let userDefaults = NSUserDefaults(suiteName: self.groupID)
                     userDefaults!.setValue(data, forKey: "storedLogoImage")
                     dispatch_async(dispatch_get_main_queue(), {
                         self.img_BottomRightLogo.image = image

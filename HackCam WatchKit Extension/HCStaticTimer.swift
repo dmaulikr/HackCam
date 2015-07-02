@@ -14,6 +14,8 @@ protocol HCStaticTimerDelegate {
 
 class HCStaticTimer: NSObject {
     
+    private let groupID = "group.a.HackCam.WatchKit"
+    
     private var timer = NSTimer()
     private static var sharedInstance: HCStaticTimer?
     
@@ -31,7 +33,7 @@ class HCStaticTimer: NSObject {
     override init() {
         super.init()
         
-        if let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit") {
+        if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
             elapseTime = userDefaults.integerForKey("timerValue")
         }
     }
@@ -49,7 +51,7 @@ class HCStaticTimer: NSObject {
     
     /** Reset timer after finished */
     private func resetTimer() {
-        if let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit") {
+        if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
             elapseTime = userDefaults.integerForKey("timerValue")
         }
     }

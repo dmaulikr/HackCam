@@ -12,6 +12,8 @@ import Foundation
 
 class TimerInterfaceController: WKInterfaceController {
 
+    private let groupID = "group.a.HackCam.WatchKit"
+    
     private let kTimeLevel = 10
     
     @IBOutlet weak var lblTimer: WKInterfaceLabel!
@@ -29,7 +31,7 @@ class TimerInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
-        if let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit") {
+        if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
             TimerInterfaceController.time = userDefaults.integerForKey("timerValue")
             lblTimer.setText(TimerInterfaceController.convertValueToString())
         }
@@ -57,7 +59,7 @@ class TimerInterfaceController: WKInterfaceController {
     }
     
     @IBAction func removeTime() {
-        if TimerInterfaceController.time > 0 {
+        if TimerInterfaceController.time > 20 {
             TimerInterfaceController.time -= kTimeLevel
             lblTimer.setText(TimerInterfaceController.convertValueToString())
         }
@@ -71,7 +73,7 @@ class TimerInterfaceController: WKInterfaceController {
     }
     
     @IBAction func updateTime() {
-        if let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit") {
+        if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
             userDefaults.setInteger(TimerInterfaceController.time, forKey: "timerValue")
             HCStaticTimer.sharedTimer().elapseTime = TimerInterfaceController.time
             dismissController()

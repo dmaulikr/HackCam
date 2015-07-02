@@ -16,6 +16,8 @@ class GlanceController: WKInterfaceController, HCStaticTimerDelegate {
     @IBOutlet weak var imgLogo: WKInterfaceImage!
     @IBOutlet weak var lblDesc: WKInterfaceLabel!
     
+    private let groupID = "group.a.HackCam.WatchKit"
+    
     private let timer = HCStaticTimer.sharedTimer()
     
     override func awakeWithContext(context: AnyObject?) {
@@ -38,12 +40,12 @@ class GlanceController: WKInterfaceController, HCStaticTimerDelegate {
         // Set the timer
         if timer.isRunning() {
             lblTimer.setText(TimerInterfaceController.convertValueToString(timer.elapseTime))
-        } else if let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit") {
+        } else if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
             lblTimer.setText(TimerInterfaceController.convertValueToString(userDefaults.integerForKey("timerValue")))
         }
         
         // Set the description title
-        if let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit") {
+        if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
             let time = userDefaults.integerForKey("timerValue")
             if time < 60 {
                 lblDesc.setText("The timer is currently set to \(time) seconds. Change it on your iPhone.")

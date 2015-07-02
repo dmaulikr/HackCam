@@ -14,12 +14,14 @@ class WelcomeInterfaceController: WKInterfaceController {
 
     private var wormhole: MMWormhole!
     
+    private let groupID = "group.a.HackCam.WatchKit"
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
         // Configure interface objects here.
         
-        if let bool = NSUserDefaults(suiteName: "group.hackcam.watchKit")?.boolForKey("tutorialSkipped") {
+        if let bool = NSUserDefaults(suiteName: self.groupID)?.boolForKey("tutorialSkipped") {
             if bool {
                 WKInterfaceController.reloadRootControllersWithNames(["mainView"], contexts: nil)
             }
@@ -30,7 +32,7 @@ class WelcomeInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
-        wormhole = MMWormhole(applicationGroupIdentifier: "group.hackcam.watchKit", optionalDirectory: nil)
+        wormhole = MMWormhole(applicationGroupIdentifier: self.groupID, optionalDirectory: nil)
         
         wormhole.listenForMessageWithIdentifier("tutorial", listener: { (messageObject) -> Void in
             if let message: AnyObject = messageObject {

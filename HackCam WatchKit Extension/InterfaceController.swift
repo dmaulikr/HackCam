@@ -20,6 +20,8 @@ class InterfaceController: WKInterfaceController, HCStaticTimerDelegate {
     @IBOutlet weak var btnBegin: WKInterfaceButton!
     @IBOutlet weak var lblDescription: WKInterfaceLabel!
     
+    private let groupID = "group.a.HackCam.WatchKit"
+    
     private var isBlurModeOff = false
     private let timer = HCStaticTimer.sharedTimer()
     private var welcomeTimer = NSTimer()
@@ -36,9 +38,9 @@ class InterfaceController: WKInterfaceController, HCStaticTimerDelegate {
         
         timer.delegate = self
         
-        wormhole = MMWormhole(applicationGroupIdentifier: "group.hackcam.watchKit", optionalDirectory: nil)
+        wormhole = MMWormhole(applicationGroupIdentifier: self.groupID, optionalDirectory: nil)
         
-        if let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit") {
+        if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
             if userDefaults.boolForKey("open") {
                 self.lblDescription.setHidden(true)
                 self.btnBegin.setHidden(false)
@@ -66,7 +68,7 @@ class InterfaceController: WKInterfaceController, HCStaticTimerDelegate {
         
         if timer.isRunning() {
             lblTimer.setText(TimerInterfaceController.convertValueToString(timer.elapseTime))
-        } else if let userDefaults = NSUserDefaults(suiteName: "group.hackcam.watchKit") {
+        } else if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
             let elapseTime = userDefaults.integerForKey("timerValue")
             lblTimer.setText(TimerInterfaceController.convertValueToString(elapseTime))
             elapseTime == 0 ? btnBegin.setEnabled(false) : btnBegin.setEnabled(true)

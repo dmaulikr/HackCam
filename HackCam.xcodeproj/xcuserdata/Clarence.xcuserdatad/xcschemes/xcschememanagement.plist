@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Glance - HackCam WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>HackCam WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>HackCam.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>114200F51A9FC2F900DB5B11</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2B0335EE1B29E3B4001104BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -317,7 +317,7 @@
 				TargetAttributes = {
 					114200E01A9FC2F900DB5B11 = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = P5UPNMJK39;
+						DevelopmentTeam = G6TTA6H999;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -326,7 +326,7 @@
 					};
 					2B0335E21B29E3B4001104BC = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = P5UPNMJK39;
+						DevelopmentTeam = G6TTA6H999;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -335,7 +335,7 @@
 					};
 					2B0335EE1B29E3B4001104BC = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = P5UPNMJK39;
+						DevelopmentTeam = G6TTA6H999;
 					};
 				};
 			};
@@ -566,8 +566,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = HackCam/HackCam.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/HackCam/Info.plist";
@@ -605,8 +605,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "HackCam WatchKit Extension/HackCam WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				INFOPLIST_FILE = "HackCam WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
@@ -642,7 +642,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				IBSC_MODULE = HackCam_WatchKit_Extension;
 				INFOPLIST_FILE = "HackCam WatchKit App/Info.plist";

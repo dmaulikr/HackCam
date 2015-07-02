@@ -17,13 +17,14 @@ class HC_WelcomeView: UIViewController {
     @IBOutlet var btn_Skip: UIButton!
     
     private var wormhole: MMWormhole!
+    private let groupID = "group.a.HackCam.WatchKit"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.frame = UIScreen.mainScreen().bounds
         
-        wormhole = MMWormhole(applicationGroupIdentifier: "group.hackcam.watchKit", optionalDirectory: nil)
+        wormhole = MMWormhole(applicationGroupIdentifier: self.groupID, optionalDirectory: nil)
         
         // Parallax Effect
         var verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
@@ -113,7 +114,7 @@ class HC_WelcomeView: UIViewController {
     }
     
     func finishTutorial() {
-        NSUserDefaults(suiteName: "group.hackcam.watchKit")?.setBool(true, forKey: "tutorialSkipped")
+        NSUserDefaults(suiteName: self.groupID)?.setBool(true, forKey: "tutorialSkipped")
     }
 
     /*
