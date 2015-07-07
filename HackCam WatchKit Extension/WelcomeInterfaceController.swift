@@ -46,7 +46,7 @@ class WelcomeInterfaceController: WKInterfaceController {
         super.didDeactivate()
         
         if wormhole != nil {
-            println("stop listening?")
+            print("stop listening?")
             self.wormhole.stopListeningForMessageWithIdentifier("tutorial")
         }
     }

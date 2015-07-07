@@ -80,7 +80,7 @@ class InterfaceController: WKInterfaceController, HCStaticTimerDelegate {
         super.didDeactivate()
         
         if wormhole != nil {
-            println("stop listening?")
+            print("stop listening?")
             wormhole.stopListeningForMessageWithIdentifier("open")
         }
     }
