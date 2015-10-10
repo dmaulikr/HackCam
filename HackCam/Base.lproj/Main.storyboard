@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SkS-3g-psS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SkS-3g-psS">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -27,9 +27,11 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Intro_Background" translatesAutoresizingMaskIntoConstraints="NO" id="9dl-cO-2bN">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iE-qN-Rfn">
                                 <rect key="frame" x="236" y="80" width="129" height="21"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="129" id="XlC-zh-ohJ"/>
                                     <constraint firstAttribute="height" constant="21" id="tTm-lY-rYt"/>
@@ -45,8 +47,9 @@
                                     <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="HackCam 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgE-bz-5Wc">
-                                <rect key="frame" x="170" y="117" width="261" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="HackCam 1.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgE-bz-5Wc">
+                                <rect key="frame" x="170" y="117" width="261" height="28"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="261" id="IP5-iM-Zp0"/>
                                     <constraint firstAttribute="height" constant="25" id="wbP-4m-yrk"/>
@@ -64,6 +67,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWm-n5-RJW">
                                 <rect key="frame" x="240" y="220" width="120" height="35"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="cQF-a8-uw3">
                                         <variation key="heightClass=regular-widthClass=compact" constant="45"/>
@@ -88,6 +92,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zc-9T-ep8">
                                 <rect key="frame" x="285" y="263" width="31" height="30"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="91N-jq-YRs"/>
                                     <constraint firstAttribute="width" constant="31" id="xKH-5S-MbX"/>
@@ -105,6 +110,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jgE-bz-5Wc" firstAttribute="top" secondItem="1iE-qN-Rfn" secondAttribute="bottom" constant="16" id="1PH-Dx-ze2"/>
@@ -173,12 +179,14 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Intro_Background" translatesAutoresizingMaskIntoConstraints="NO" id="FIE-hH-aZt">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Get Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0A-pG-BrC">
                                 <rect key="frame" x="196" y="51" width="209" height="32"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="EfB-8s-3FH"/>
                                     <constraint firstAttribute="width" constant="209" id="v4W-NR-JfN"/>
@@ -192,6 +200,7 @@
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="img_orientationlock" translatesAutoresizingMaskIntoConstraints="NO" id="DJf-fQ-YQ0">
                                 <rect key="frame" x="260" y="189" width="80" height="80"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="6zf-LX-vwr"/>
                                     <constraint firstAttribute="height" constant="80" id="j6r-FG-GrP"/>
@@ -205,6 +214,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1. Disable your orientation lock and hold your iPhone in landscape (home button on the left)." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJi-iz-jec">
                                 <rect key="frame" x="16" y="277" width="568" height="45"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="9Vg-qH-Gzu"/>
                                 </constraints>
@@ -220,6 +230,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbA-Bs-y4p">
                                 <rect key="frame" x="240" y="476" width="120" height="35"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Eem-DU-tuN">
                                         <variation key="heightClass=compact-widthClass=compact" constant="29"/>
@@ -248,6 +259,7 @@
                             </button>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="img_Tutorial3" translatesAutoresizingMaskIntoConstraints="NO" id="voo-Lk-fio">
                                 <rect key="frame" x="119" y="91" width="363" height="192"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="188" id="9gO-6I-p0Q">
                                         <variation key="heightClass=compact-widthClass=compact" constant="149"/>
@@ -302,6 +314,7 @@
                                 </variation>
                             </imageView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bkb-Wa-yo5" firstAttribute="top" secondItem="LbA-Bs-y4p" secondAttribute="bottom" priority="999" constant="20" id="2wM-se-mwq"/>
@@ -515,9 +528,11 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Intro_Background" translatesAutoresizingMaskIntoConstraints="NO" id="vFW-95-cN9">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yA-Yu-9d2">
                                 <rect key="frame" x="256" y="252" width="89" height="28"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
                                 <state key="normal" title="Change Logo">
                                     <color key="titleColor" red="1" green="0.82745098039999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -529,6 +544,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQo-Lc-lj9">
                                 <rect key="frame" x="257" y="209" width="87" height="28"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
                                 <state key="normal" title="Start Camera">
                                     <color key="titleColor" red="1" green="0.82745098039999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -538,8 +554,9 @@
                                     <action selector="btn_StartClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qEY-tv-MaT"/>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HL_Logo_Normal" translatesAutoresizingMaskIntoConstraints="NO" id="ZC2-f2-s7S">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="HL_Logo_Normal" translatesAutoresizingMaskIntoConstraints="NO" id="ZC2-f2-s7S">
                                 <rect key="frame" x="497" y="522" width="87" height="70"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="87" id="Cwk-Rh-Y3b"/>
                                     <constraint firstAttribute="height" constant="70" id="VNX-tY-PmM"/>
@@ -547,11 +564,13 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint: Tap logo for blurred mode." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gX-iT-sD5">
                                 <rect key="frame" x="188" y="337" width="226" height="17"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9yA-Yu-9d2" firstAttribute="top" secondItem="VQo-Lc-lj9" secondAttribute="bottom" constant="27" id="5Fg-pU-8jU"/>
