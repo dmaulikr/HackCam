@@ -35,7 +35,7 @@ class WelcomeInterfaceController: WKInterfaceController {
         wormhole = MMWormhole(applicationGroupIdentifier: self.groupID, optionalDirectory: nil)
         
         wormhole.listenForMessageWithIdentifier("tutorial", listener: { (messageObject) -> Void in
-            if let message: AnyObject = messageObject {
+            if let _: AnyObject = messageObject {
                 WKInterfaceController.reloadRootControllersWithNames(["mainView"], contexts: nil)
             }
         })
@@ -46,7 +46,7 @@ class WelcomeInterfaceController: WKInterfaceController {
         super.didDeactivate()
         
         if wormhole != nil {
-            println("stop listening?")
+            print("stop listening?")
             self.wormhole.stopListeningForMessageWithIdentifier("tutorial")
         }
     }

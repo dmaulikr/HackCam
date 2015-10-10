@@ -26,10 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             return String.fromCString(UnsafePointer(body.baseAddress.advancedBy(Int(_SYS_NAMELEN * 4))))
             }!
-        println(Array(model))
-        let modelArray = Array(model)
+        print(Array(model.characters))
+        let modelArray = Array(model.characters)
         if modelArray.count > 6 {
-            if String(Array(model)[6]).toInt() >= 7 {
+            if Int(String(Array(model.characters)[6])) >= 7 {
                 NSUserDefaults.standardUserDefaults().setBool(true, forKey: "iPhone6andLater")
             } else {
                 NSUserDefaults.standardUserDefaults().setBool(false, forKey: "iPhone6andLater")
@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]?) -> Void)) {
         
         var retValues = Dictionary<String,NSData>()
         

@@ -10,6 +10,7 @@ import UIKit
 import MobileCoreServices
 import AVFoundation
 
+@available(iOS 8.0, *)
 class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
     private var cameraPicker = UIImagePickerController()
@@ -149,7 +150,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func dismissBlurView(recog: UIGestureRecognizer) {
         dispatch_async(dispatch_get_main_queue(), {
-            UIView.animateWithDuration(0.8, delay: 0, options: nil, animations: {
+            UIView.animateWithDuration(0.8, delay: 0, options: [], animations: {
                 self.blurView.alpha = 0.0
                 self.imageView_LogoBig.alpha = 0.0
                 self.img_BottomRightLogo.alpha = 1.0
@@ -167,12 +168,12 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     // MARK: - App Lifecycle
     
     func applicationDidBecomeActive(notification: NSNotification) {
-        println("start application listening")
+        print("start application listening")
         registerWatchNotification()
     }
     
     func applicationDidEnterBackground(notification: NSNotification) {
-        println("stop listening for presentation?")
+        print("stop listening for presentation?")
         if wormhole != nil {
             wormhole.stopListeningForMessageWithIdentifier("blurMode")
         }
@@ -199,7 +200,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // MARK: - Device Orientation
     func deviceOrientationChanged(notification: NSNotification) {
-        var deviceOrientation = UIApplication.sharedApplication().statusBarOrientation
+        let deviceOrientation = UIApplication.sharedApplication().statusBarOrientation
         switch deviceOrientation {
         case .LandscapeLeft:
             dispatch_async(dispatch_get_main_queue(), {
@@ -212,7 +213,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
                     self.view.bringSubviewToFront(self.imageView_LogoBig!)
                 }
                 self.imageView_LogoBig?.center = self.view.center
-                println("LandscapeLeft: \(self.cameraPicker.view.frame)")
+                print("LandscapeLeft: \(self.cameraPicker.view.frame)")
             })
         case .Portrait:
             dispatch_async(dispatch_get_main_queue(), {
@@ -225,7 +226,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
                     self.view.bringSubviewToFront(self.imageView_LogoBig!)
                 }
                 self.imageView_LogoBig?.center = self.view.center
-                println("Portrait: \(self.cameraPicker.view.frame)")
+                print("Portrait: \(self.cameraPicker.view.frame)")
             })
         default: break
         }
@@ -240,7 +241,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             cameraPicker.delegate = self
             cameraPicker.allowsEditing = false
-            cameraPicker.mediaTypes = [kUTTypeMovie, kUTTypeImage]
+            cameraPicker.mediaTypes = [String(kUTTypeMovie), String(kUTTypeImage)]
             cameraPicker.sourceType = .Camera
             
             cameraPicker.cameraCaptureMode = .Video
@@ -256,9 +257,6 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.view.addSubview(cameraPicker.view)
             
             dispatch_async(dispatch_get_main_queue(), {
-                
-                let deviceWidth = UIScreen.mainScreen().bounds.width
-                let deviceHeight = UIScreen.mainScreen().bounds.height
                 
                 self.img_BottomRightLogo.layer.shadowColor = UIColor.blackColor().CGColor;
                 self.img_BottomRightLogo.layer.shadowOffset = CGSizeZero;
@@ -276,7 +274,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.cameraPicker.view.transform = CGAffineTransformMakeRotation(CGFloat(M_PI / 2))
                     self.cameraPicker.view.frame = self.view.bounds
-                    println("LandscapeLeft: \(self.cameraPicker.view.frame)")
+                    print("LandscapeLeft: \(self.cameraPicker.view.frame)")
                 })
             }
             
@@ -295,7 +293,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func startPhotoPickerSession() {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
-            var photoPicker = UIImagePickerController()
+            let photoPicker = UIImagePickerController()
             photoPicker.delegate = self
             photoPicker.allowsEditing = false
             photoPicker.sourceType = .SavedPhotosAlbum
@@ -320,19 +318,19 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     // MARK: - Change Logo
     // MARK: Button Clicked
     @IBAction func btn_ChangeLogoClicked(sender: AnyObject) {
-        var chooseLogoSource = UIAlertController(title: nil, message: "Pick a 1:1 PNG image for the new logo. Recommended resolution: 640x640.", preferredStyle: .ActionSheet)
+        let chooseLogoSource = UIAlertController(title: nil, message: "Pick a 1:1 PNG image for the new logo. Recommended resolution: 640x640.", preferredStyle: .ActionSheet)
         chooseLogoSource.addAction(UIAlertAction(title: "Enter URL", style: .Default, handler: { (action) -> Void in
             // AlertView to enter url
-            var urlAlertView = UIAlertController(title: nil, message: "Enter URL of your logo file:", preferredStyle: .Alert)
-            urlAlertView.addTextFieldWithConfigurationHandler({ (textField: UITextField!) -> Void in
+            let urlAlertView = UIAlertController(title: nil, message: "Enter URL of your logo file:", preferredStyle: .Alert)
+            urlAlertView.addTextFieldWithConfigurationHandler({ (textField: UITextField) -> Void in
                 textField.text = "http://"
                 textField.keyboardType = .URL
                 textField.keyboardAppearance = UIKeyboardAppearance.Dark
                 textField.becomeFirstResponder()
             })
-            urlAlertView.addAction(UIAlertAction(title: "Get Image", style: .Default, handler: { (aa: UIAlertAction!) -> Void in
-                let inputString = (urlAlertView.textFields![0] as! UITextField).text
-                self.getImageFromURL(inputString) {
+            urlAlertView.addAction(UIAlertAction(title: "Get Image", style: .Default, handler: { (aa: UIAlertAction) -> Void in
+                let inputString = (urlAlertView.textFields![0] ).text
+                self.getImageFromURL(inputString!) {
                     (result: Bool) in
                     if !result {
                         urlAlertView.message = "Something went wrong, please try again."
@@ -367,9 +365,9 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         if let url = NSURL(string: input_Url) {
             let request = NSURLRequest(URL: url, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 8.0)
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                 if error == nil {
-                    image = UIImage(data: data)
+                    image = UIImage(data: data!)
                     loadingIndicator.stopAnimating()
                     
                     let userDefaults = NSUserDefaults(suiteName: self.groupID)
@@ -403,7 +401,7 @@ class HC_MainViewController: UIViewController, UIImagePickerControllerDelegate, 
     // MARK: Remove Parallax Effect
     func removeParallaxEffect() {
         img_Background.transform = CGAffineTransformMakeScale(1, 1)
-        img_Background.motionEffects = nil
+        img_Background.motionEffects = []
     }
 }
 

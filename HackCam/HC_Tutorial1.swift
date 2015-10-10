@@ -34,9 +34,9 @@ class HC_Tutorial1: UIViewController {
         wormhole = MMWormhole(applicationGroupIdentifier: self.groupID, optionalDirectory: nil)
         
         // Parallax Effect
-        var verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
-        var horizontalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
-        var motionEffectGroup: UIMotionEffectGroup = UIMotionEffectGroup()
+        let verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
+        let horizontalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
+        let motionEffectGroup: UIMotionEffectGroup = UIMotionEffectGroup()
         motionEffectGroup.motionEffects = [verticalMotionEffect, horizontalMotionEffect]
         verticalMotionEffect.minimumRelativeValue = -15
         verticalMotionEffect.maximumRelativeValue = 15
@@ -140,7 +140,7 @@ class HC_Tutorial1: UIViewController {
     }
     
     func finishTutorial() {
-        println("send message")
+        print("send message")
         wormhole.passMessageObject(["value":true], identifier: "tutorial")
         
         NSUserDefaults(suiteName: self.groupID)?.setBool(true, forKey: "tutorialSkipped")

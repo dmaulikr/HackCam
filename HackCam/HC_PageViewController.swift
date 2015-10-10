@@ -35,7 +35,7 @@ class HC_PageViewController: UIPageViewController, UIPageViewControllerDataSourc
         }
         
         index--
-        return self.viewControllers[index] as? UIViewController
+        return self.viewControllers![index] as UIViewController
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
@@ -44,10 +44,10 @@ class HC_PageViewController: UIPageViewController, UIPageViewControllerDataSourc
         }
         
         index++
-        if index == self.viewControllers.count {
+        if index == self.viewControllers!.count {
             return nil
         }
-        return self.viewControllers[index] as? UIViewController
+        return self.viewControllers![index] as UIViewController
     }
     
 

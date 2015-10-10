@@ -14,7 +14,6 @@
 		114200EE1A9FC2F900DB5B11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 114200ED1A9FC2F900DB5B11 /* Images.xcassets */; };
 		115BC0601AC068FC00D8684D /* HC_PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115BC05F1AC068FC00D8684D /* HC_PageViewController.swift */; };
 		11B26A911B28C95E009FCB46 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 11B26A901B28C93B009FCB46 /* MyriadPro-Regular.otf */; };
-		11D20DD11AA77DC5003E1403 /* HC_CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D20DD01AA77DC5003E1403 /* HC_CameraView.swift */; };
 		11DF51B41AA91AA20038BCDA /* HC_WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF51B31AA91AA20038BCDA /* HC_WelcomeView.swift */; };
 		2B0335E81B29E3B4001104BC /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0335E71B29E3B4001104BC /* InterfaceController.swift */; };
 		2B0335EA1B29E3B4001104BC /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0335E91B29E3B4001104BC /* GlanceController.swift */; };
@@ -78,7 +77,6 @@
 		114200FC1A9FC2F900DB5B11 /* HackCamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HackCamTests.swift; path = HackCamTests/HackCamTests.swift; sourceTree = "<group>"; };
 		115BC05F1AC068FC00D8684D /* HC_PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HC_PageViewController.swift; sourceTree = "<group>"; };
 		11B26A901B28C93B009FCB46 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
-		11D20DD01AA77DC5003E1403 /* HC_CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HC_CameraView.swift; path = ../HC_CameraView.swift; sourceTree = "<group>"; };
 		11DF51B31AA91AA20038BCDA /* HC_WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HC_WelcomeView.swift; sourceTree = "<group>"; };
 		2B0335E31B29E3B4001104BC /* HackCam WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HackCam WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0335E61B29E3B4001104BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 				11B26A8F1B28C8EF009FCB46 /* Fonts */,
 				114200E61A9FC2F900DB5B11 /* AppDelegate.swift */,
 				114200E81A9FC2F900DB5B11 /* HC_MainViewController.swift */,
-				11D20DD01AA77DC5003E1403 /* HC_CameraView.swift */,
 				114200EA1A9FC2F900DB5B11 /* Main.storyboard */,
 				11DF51B31AA91AA20038BCDA /* HC_WelcomeView.swift */,
 				11362E201AAF5EB80038A6E3 /* HC_Tutorial1.swift */,
@@ -311,6 +308,7 @@
 		114200D91A9FC2F900DB5B11 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Clarence Ji";
@@ -400,7 +398,6 @@
 				114200E91A9FC2F900DB5B11 /* HC_MainViewController.swift in Sources */,
 				114200E71A9FC2F900DB5B11 /* AppDelegate.swift in Sources */,
 				11DF51B41AA91AA20038BCDA /* HC_WelcomeView.swift in Sources */,
-				11D20DD11AA77DC5003E1403 /* HC_CameraView.swift in Sources */,
 				2BFD96BE1B3D8E08002B4AD4 /* MMWormhole.m in Sources */,
 				2BFD96BF1B3D8E08002B4AD4 /* MMWormholeCoordinatedFileTransiting.m in Sources */,
 				2BFD96C01B3D8E08002B4AD4 /* MMWormholeFileTransiting.m in Sources */,
@@ -551,7 +548,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/HackCam/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = HackCam;
 				PROVISIONING_PROFILE = "";
@@ -571,7 +568,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/HackCam/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = HackCam;
 				PROVISIONING_PROFILE = "";

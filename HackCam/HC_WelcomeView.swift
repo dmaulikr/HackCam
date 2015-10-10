@@ -27,9 +27,9 @@ class HC_WelcomeView: UIViewController {
         wormhole = MMWormhole(applicationGroupIdentifier: self.groupID, optionalDirectory: nil)
         
         // Parallax Effect
-        var verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
-        var horizontalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
-        var motionEffectGroup: UIMotionEffectGroup = UIMotionEffectGroup()
+        let verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
+        let horizontalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
+        let motionEffectGroup: UIMotionEffectGroup = UIMotionEffectGroup()
         motionEffectGroup.motionEffects = [verticalMotionEffect, horizontalMotionEffect]
         verticalMotionEffect.minimumRelativeValue = -15
         verticalMotionEffect.maximumRelativeValue = 15
@@ -66,10 +66,10 @@ class HC_WelcomeView: UIViewController {
         label_Welcometo.center = CGPointMake(label_Welcometo.center.x, label_Welcometo.center.y + 20)
         label_Title.center = CGPointMake(label_Title.center.x, label_Title.center.y + 20)
         
-        UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: [], animations: { () -> Void in
             self.label_Welcometo.alpha = 0.6
             self.label_Welcometo.center = CGPointMake(self.label_Welcometo.center.x, self.label_Welcometo.center.y - 20)
-            UIView.animateWithDuration(0.8, delay: 0.4, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: nil, animations: { () -> Void in
+            UIView.animateWithDuration(0.8, delay: 0.4, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: [], animations: { () -> Void in
                 self.label_Title.alpha = 1
                 self.label_Title.center = CGPointMake(self.label_Title.center.x, self.label_Title.center.y - 20)
                 }, completion: nil)
@@ -83,16 +83,16 @@ class HC_WelcomeView: UIViewController {
     }
     
     @IBAction func btn_Start_Pressed(sender: AnyObject) {
-        println("Transiting")
+        print("Transiting")
         dispatch_async(dispatch_get_main_queue(), {
             UIView.animateWithDuration(0.5, animations: {
                 self.btn_Start.alpha = 0
                 self.btn_Skip.alpha  = 0
-                UIView.animateWithDuration(0.5, delay: 0.3, options: nil, animations: {
+                UIView.animateWithDuration(0.5, delay: 0.3, options: [], animations: {
                     self.label_Welcometo.center = CGPointMake(self.label_Welcometo.center.x, self.label_Welcometo.center.y - 100)
                     self.label_Welcometo.alpha = 0
                     
-                    UIView.animateWithDuration(0.5, delay: 0.2, options: nil, animations: {
+                    UIView.animateWithDuration(0.5, delay: 0.2, options: [], animations: {
                         self.label_Title.center = CGPointMake(self.label_Title.center.x, self.label_Title.center.y - 100)
                         self.label_Title.alpha = 0
                         }, completion: {(Bool) -> Void in
