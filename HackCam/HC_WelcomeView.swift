@@ -16,26 +16,26 @@ class HC_WelcomeView: UIViewController {
     @IBOutlet var btn_Start: UIButton!
     @IBOutlet var btn_Skip: UIButton!
     
-    private var wormhole: MMWormhole!
-    private let groupID = "group.a.HackCam.WatchKit"
+    fileprivate var wormhole: MMWormhole!
+    fileprivate let groupID = "group.a.HackCam.WatchKit"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.frame = UIScreen.mainScreen().bounds
+        self.view.frame = UIScreen.main.bounds
         
         wormhole = MMWormhole(applicationGroupIdentifier: self.groupID, optionalDirectory: nil)
         
         // Parallax Effect
-        let verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
-        let horizontalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
+        let verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        let horizontalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
         let motionEffectGroup: UIMotionEffectGroup = UIMotionEffectGroup()
         motionEffectGroup.motionEffects = [verticalMotionEffect, horizontalMotionEffect]
         verticalMotionEffect.minimumRelativeValue = -15
         verticalMotionEffect.maximumRelativeValue = 15
         horizontalMotionEffect.minimumRelativeValue = -15
         horizontalMotionEffect.maximumRelativeValue = 15
-        img_Background.transform = CGAffineTransformMakeScale(1.05, 1.05)
+        img_Background.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
         img_Background.motionEffects = [motionEffectGroup]
     }
 
@@ -44,18 +44,18 @@ class HC_WelcomeView: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         // Button Style
         btn_Start.backgroundColor = UIColor(red: 0, green: 192/255, blue: 209/255, alpha: 0.20)
-        let blurEffect = UIBlurEffect(style: .Light)
+        let blurEffect = UIBlurEffect(style: .light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        let blurEffectView_Frame = CGRectMake(btn_Start.bounds.origin.x, btn_Start.bounds.origin.y, 150, 45)
+        let blurEffectView_Frame = CGRect(x: btn_Start.bounds.origin.x, y: btn_Start.bounds.origin.y, width: 150, height: 45)
         blurEffectView.frame = blurEffectView_Frame
         blurEffectView.alpha = 0.75
         blurEffectView.layer.cornerRadius = 3
-        blurEffectView.userInteractionEnabled = false
+        blurEffectView.isUserInteractionEnabled = false
         btn_Start.addSubview(blurEffectView)
-        btn_Start.sendSubviewToBack(blurEffectView)
+        btn_Start.sendSubview(toBack: blurEffectView)
         btn_Start.layer.cornerRadius = 3
         btn_Start.clipsToBounds = true
         
@@ -63,58 +63,58 @@ class HC_WelcomeView: UIViewController {
         // Prepare positions
         label_Welcometo.alpha = 0
         label_Title.alpha = 0
-        label_Welcometo.center = CGPointMake(label_Welcometo.center.x, label_Welcometo.center.y + 20)
-        label_Title.center = CGPointMake(label_Title.center.x, label_Title.center.y + 20)
+        label_Welcometo.center = CGPoint(x: label_Welcometo.center.x, y: label_Welcometo.center.y + 20)
+        label_Title.center = CGPoint(x: label_Title.center.x, y: label_Title.center.y + 20)
         
-        UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: [], animations: { () -> Void in
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: [], animations: { () -> Void in
             self.label_Welcometo.alpha = 0.6
-            self.label_Welcometo.center = CGPointMake(self.label_Welcometo.center.x, self.label_Welcometo.center.y - 20)
-            UIView.animateWithDuration(0.8, delay: 0.4, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: [], animations: { () -> Void in
+            self.label_Welcometo.center = CGPoint(x: self.label_Welcometo.center.x, y: self.label_Welcometo.center.y - 20)
+            UIView.animate(withDuration: 0.8, delay: 0.4, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: [], animations: { () -> Void in
                 self.label_Title.alpha = 1
-                self.label_Title.center = CGPointMake(self.label_Title.center.x, self.label_Title.center.y - 20)
+                self.label_Title.center = CGPoint(x: self.label_Title.center.x, y: self.label_Title.center.y - 20)
                 }, completion: nil)
         }, completion: nil)
         
         
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
-    @IBAction func btn_Start_Pressed(sender: AnyObject) {
+    @IBAction func btn_Start_Pressed(_ sender: AnyObject) {
         print("Transiting")
-        dispatch_async(dispatch_get_main_queue(), {
-            UIView.animateWithDuration(0.5, animations: {
+        DispatchQueue.main.async(execute: {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.btn_Start.alpha = 0
                 self.btn_Skip.alpha  = 0
-                UIView.animateWithDuration(0.5, delay: 0.3, options: [], animations: {
-                    self.label_Welcometo.center = CGPointMake(self.label_Welcometo.center.x, self.label_Welcometo.center.y - 100)
+                UIView.animate(withDuration: 0.5, delay: 0.3, options: [], animations: {
+                    self.label_Welcometo.center = CGPoint(x: self.label_Welcometo.center.x, y: self.label_Welcometo.center.y - 100)
                     self.label_Welcometo.alpha = 0
                     
-                    UIView.animateWithDuration(0.5, delay: 0.2, options: [], animations: {
-                        self.label_Title.center = CGPointMake(self.label_Title.center.x, self.label_Title.center.y - 100)
+                    UIView.animate(withDuration: 0.5, delay: 0.2, options: [], animations: {
+                        self.label_Title.center = CGPoint(x: self.label_Title.center.x, y: self.label_Title.center.y - 100)
                         self.label_Title.alpha = 0
                         }, completion: {(Bool) -> Void in
-                            let view_Tutorial1 = self.storyboard!.instantiateViewControllerWithIdentifier("Tutorial1") as! HC_Tutorial1
-                            self.presentViewController(view_Tutorial1, animated: false, completion: nil)
+                            let view_Tutorial1 = self.storyboard!.instantiateViewController(withIdentifier: "Tutorial1") as! HC_Tutorial1
+                            self.present(view_Tutorial1, animated: false, completion: nil)
                     })
                 }, completion: nil)
             }, completion: nil)
         })
     }
     
-    @IBAction func btn_Skip_Pressed(sender: AnyObject) {
-        wormhole.passMessageObject(["value":true], identifier: "tutorial")
+    @IBAction func btn_Skip_Pressed(_ sender: AnyObject) {
+        wormhole.passMessageObject(["value":true] as NSCoding, identifier: "tutorial")
         
         finishTutorial()
         
-        let mainView = self.storyboard!.instantiateViewControllerWithIdentifier("CameraView") as! HC_MainViewController
-        self.presentViewController(mainView, animated: true, completion: nil)
+        let mainView = self.storyboard!.instantiateViewController(withIdentifier: "CameraView") as! HC_MainViewController
+        self.present(mainView, animated: true, completion: nil)
     }
     
     func finishTutorial() {
-        NSUserDefaults(suiteName: self.groupID)?.setBool(true, forKey: "tutorialSkipped")
+        UserDefaults(suiteName: self.groupID)?.set(true, forKey: "tutorialSkipped")
     }
 
     /*

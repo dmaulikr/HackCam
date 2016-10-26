@@ -12,17 +12,17 @@ import Foundation
 
 class TimerInterfaceController: WKInterfaceController {
 
-    private let groupID = "group.a.HackCam.WatchKit"
+    fileprivate let groupID = "group.a.HackCam.WatchKit"
     
-    private let kTimeLevel = 10
+    fileprivate let kTimeLevel = 10
     
     @IBOutlet weak var lblTimer: WKInterfaceLabel!
     
     // Timer value to increase and decrease
-    private static var time = 60
+    fileprivate static var time = 60
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
         // Configure interface objects here.
     }
@@ -31,8 +31,8 @@ class TimerInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
-        if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
-            TimerInterfaceController.time = userDefaults.integerForKey("timerValue")
+        if let userDefaults = UserDefaults(suiteName: self.groupID) {
+            TimerInterfaceController.time = userDefaults.integer(forKey: "timerValue")
             lblTimer.setText(TimerInterfaceController.convertValueToString())
         }
     }
@@ -53,7 +53,7 @@ class TimerInterfaceController: WKInterfaceController {
         }
     }
     
-    class func convertValueToString(value: Int) -> String {
+    class func convertValueToString(_ value: Int) -> String {
         TimerInterfaceController.time = value
         return convertValueToString()
     }
@@ -73,10 +73,10 @@ class TimerInterfaceController: WKInterfaceController {
     }
     
     @IBAction func updateTime() {
-        if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
-            userDefaults.setInteger(TimerInterfaceController.time, forKey: "timerValue")
+        if let userDefaults = UserDefaults(suiteName: self.groupID) {
+            userDefaults.set(TimerInterfaceController.time, forKey: "timerValue")
             HCStaticTimer.sharedTimer().elapseTime = TimerInterfaceController.time
-            dismissController()
+            dismiss()
         }
     }
 }

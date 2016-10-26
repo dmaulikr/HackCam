@@ -14,10 +14,10 @@ protocol HCStaticTimerDelegate {
 
 class HCStaticTimer: NSObject {
     
-    private let groupID = "group.a.HackCam.WatchKit"
+    fileprivate let groupID = "group.a.HackCam.WatchKit"
     
-    private var timer = NSTimer()
-    private static var sharedInstance: HCStaticTimer?
+    fileprivate var timer = Timer()
+    fileprivate static var sharedInstance: HCStaticTimer?
     
     var elapseTime = 60
     var delegate: HCStaticTimerDelegate?
@@ -33,14 +33,14 @@ class HCStaticTimer: NSObject {
     override init() {
         super.init()
         
-        if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
-            elapseTime = userDefaults.integerForKey("timerValue")
+        if let userDefaults = UserDefaults(suiteName: self.groupID) {
+            elapseTime = userDefaults.integer(forKey: "timerValue")
         }
     }
     
     /** Start the timer statically so it is the same everywhere */
     func startTimer() {
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateTime"), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(HCStaticTimer.updateTime), userInfo: nil, repeats: true)
         timer.fire()
     }
     
@@ -50,16 +50,16 @@ class HCStaticTimer: NSObject {
     }
     
     /** Reset timer after finished */
-    private func resetTimer() {
-        if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
-            elapseTime = userDefaults.integerForKey("timerValue")
+    fileprivate func resetTimer() {
+        if let userDefaults = UserDefaults(suiteName: self.groupID) {
+            elapseTime = userDefaults.integer(forKey: "timerValue")
         }
     }
     
     /** Update the elapse value and check weather it ended or not. 
     On the views if it's below 10 make it red. */
     func updateTime() {
-        elapseTime--
+        elapseTime -= 1
         
         if elapseTime <= -1 {
             endTimer()
@@ -70,6 +70,6 @@ class HCStaticTimer: NSObject {
     
     
     func isRunning() -> Bool {
-        return timer.valid
+        return timer.isValid
     }
 }

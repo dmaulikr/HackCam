@@ -16,67 +16,67 @@ class HC_Tutorial1: UIViewController {
     @IBOutlet var btn_NextStep: UIButton!
     @IBOutlet var label_Description: UILabel!
     
-    var iPhone6andLater = NSUserDefaults.standardUserDefaults().boolForKey("iPhone6andLater")
+    var iPhone6andLater = UserDefaults.standard.bool(forKey: "iPhone6andLater")
     
     var currentStep = 0
     var str_SecondStep = "2. Connect your iPhone to your Mac. Open QuickTime Player on Mac."
     var str_ThirdStep = "3. On QuickTime Player menu bar, click File > New Movie Recording. Click the arrow beside the recording button and choose your iPhone."
     var str_FourthStep = "4. For maximum quality, you can turn on 60 FPS recording in your phone settings."
     
-    private var wormhole: MMWormhole!
-    private let groupID = "group.a.HackCam.WatchKit"
+    fileprivate var wormhole: MMWormhole!
+    fileprivate let groupID = "group.a.HackCam.WatchKit"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.frame = UIScreen.mainScreen().bounds
+        self.view.frame = UIScreen.main.bounds
         
         wormhole = MMWormhole(applicationGroupIdentifier: self.groupID, optionalDirectory: nil)
         
         // Parallax Effect
-        let verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
-        let horizontalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
+        let verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        let horizontalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
         let motionEffectGroup: UIMotionEffectGroup = UIMotionEffectGroup()
         motionEffectGroup.motionEffects = [verticalMotionEffect, horizontalMotionEffect]
         verticalMotionEffect.minimumRelativeValue = -15
         verticalMotionEffect.maximumRelativeValue = 15
         horizontalMotionEffect.minimumRelativeValue = -15
         horizontalMotionEffect.maximumRelativeValue = 15
-        img_Background.transform = CGAffineTransformMakeScale(1.05, 1.05)
+        img_Background.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
         img_Background.motionEffects = [motionEffectGroup]
 
         // Button Style
         btn_NextStep.backgroundColor = UIColor(red: 0, green: 192/255, blue: 209/255, alpha: 0.20)
-        let blurEffect = UIBlurEffect(style: .Light)
+        let blurEffect = UIBlurEffect(style: .light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        let blurEffectView_Frame = CGRectMake(btn_NextStep.bounds.origin.x, btn_NextStep.bounds.origin.y, 150, 45)
+        let blurEffectView_Frame = CGRect(x: btn_NextStep.bounds.origin.x, y: btn_NextStep.bounds.origin.y, width: 150, height: 45)
         blurEffectView.frame = blurEffectView_Frame
         blurEffectView.alpha = 0.75
         blurEffectView.layer.cornerRadius = 3
-        blurEffectView.userInteractionEnabled = false
+        blurEffectView.isUserInteractionEnabled = false
         btn_NextStep.addSubview(blurEffectView)
-        btn_NextStep.sendSubviewToBack(blurEffectView)
+        btn_NextStep.sendSubview(toBack: blurEffectView)
         btn_NextStep.layer.cornerRadius = 3
         btn_NextStep.clipsToBounds = true
         
     }
     
-    @IBAction func btn_NextStepClicked(sender: AnyObject) {
-        dispatch_async(dispatch_get_main_queue(), {
+    @IBAction func btn_NextStepClicked(_ sender: AnyObject) {
+        DispatchQueue.main.async(execute: {
             switch self.currentStep {
             case 0:
                 self.animateDescription(self.str_SecondStep)
                 self.animateIcons()
                 
-                self.currentStep++
+                self.currentStep += 1
                 
             case 1:
                 self.animateDescription(self.str_ThirdStep)
                 self.animateIcons()
                 
-                self.currentStep++
+                self.currentStep += 1
                 if !self.iPhone6andLater {
-                    self.btn_NextStep.setTitle("Finish", forState: .Normal)
+                    self.btn_NextStep.setTitle("Finish", for: UIControlState())
                 }
                 
             case 2:
@@ -84,8 +84,8 @@ class HC_Tutorial1: UIViewController {
                     self.animateDescription(self.str_FourthStep)
                     self.animateIcons()
                     
-                    self.currentStep++
-                    self.btn_NextStep.setTitle("Finish", forState: .Normal)
+                    self.currentStep += 1
+                    self.btn_NextStep.setTitle("Finish", for: UIControlState())
                 } else {
                     self.finishTutorial()
                 }
@@ -100,30 +100,30 @@ class HC_Tutorial1: UIViewController {
         
     }
     
-    func animateDescription(string: String) {
+    func animateDescription(_ string: String) {
         
-        UIView.animateWithDuration(0.4, animations: {
+        UIView.animate(withDuration: 0.4, animations: {
             self.label_Description.alpha = 0.0
-            }) { (complete: Bool) -> Void in
+            }, completion: { (complete: Bool) -> Void in
                 self.label_Description.text = string
-                UIView.animateWithDuration(0.4, animations: {
+                UIView.animate(withDuration: 0.4, animations: {
                     self.label_Description.alpha = 0.6
                 }, completion: nil)
-        }
+        }) 
     }
     
     func animateIcons() {
         let img_QuickTime = UIImage(named: "img_QuickTime")
         let img_Tutorial4 = UIImage(named: "img_Tutorial4")
         if self.currentStep == 2 && self.iPhone6andLater {
-            UIView.transitionWithView(self.img_Tutorial3, duration: 0.8, options: .TransitionCrossDissolve, animations: {
+            UIView.transition(with: self.img_Tutorial3, duration: 0.8, options: .transitionCrossDissolve, animations: {
                 self.img_Tutorial3.image = img_Tutorial4
                 self.img_Tutorial3.alpha == 0.9
             }, completion: nil)
         } else {
-            UIView.transitionWithView(self.img_OrientationLock,
+            UIView.transition(with: self.img_OrientationLock,
                 duration: 0.8,
-                options: .TransitionCrossDissolve,
+                options: .transitionCrossDissolve,
                 animations: {
                     if self.currentStep == 0 {
                         self.img_OrientationLock.image = img_QuickTime
@@ -141,12 +141,12 @@ class HC_Tutorial1: UIViewController {
     
     func finishTutorial() {
         print("send message")
-        wormhole.passMessageObject(["value":true], identifier: "tutorial")
+        wormhole.passMessageObject(["value":true] as NSCoding, identifier: "tutorial")
         
-        NSUserDefaults(suiteName: self.groupID)?.setBool(true, forKey: "tutorialSkipped")
+        UserDefaults(suiteName: self.groupID)?.set(true, forKey: "tutorialSkipped")
         
-        let cameraView = self.storyboard!.instantiateViewControllerWithIdentifier("CameraView") as! HC_MainViewController
-        self.presentViewController(cameraView, animated: true, completion: nil)
+        let cameraView = self.storyboard!.instantiateViewController(withIdentifier: "CameraView") as! HC_MainViewController
+        self.present(cameraView, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

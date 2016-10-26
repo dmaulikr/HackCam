@@ -12,24 +12,24 @@ import Foundation
 
 class InterfaceController: WKInterfaceController, HCStaticTimerDelegate {
 
-    private let kBeginText = "Begin"
-    private let kEndText = "End"
+    fileprivate let kBeginText = "Begin"
+    fileprivate let kEndText = "End"
     
     @IBOutlet weak var lblTimer: WKInterfaceLabel!
     @IBOutlet weak var imgLogo: WKInterfaceImage!
     @IBOutlet weak var btnBegin: WKInterfaceButton!
     @IBOutlet weak var lblDescription: WKInterfaceLabel!
     
-    private let groupID = "group.a.HackCam.WatchKit"
+    fileprivate let groupID = "group.a.HackCam.WatchKit"
     
-    private var isBlurModeOff = false
-    private let timer = HCStaticTimer.sharedTimer()
-    private var welcomeTimer = NSTimer()
-    private var wormhole: MMWormhole!
+    fileprivate var isBlurModeOff = false
+    fileprivate let timer = HCStaticTimer.sharedTimer()
+    fileprivate var welcomeTimer = Timer()
+    fileprivate var wormhole: MMWormhole!
     
-    override func awakeWithContext(context: AnyObject?) {
+    override func awake(withContext context: Any?) {
         // Configure interface objects here.
-        super.awakeWithContext(context)
+        super.awake(withContext: context)
     }
     
     override func willActivate() {
@@ -40,15 +40,15 @@ class InterfaceController: WKInterfaceController, HCStaticTimerDelegate {
         
         wormhole = MMWormhole(applicationGroupIdentifier: self.groupID, optionalDirectory: nil)
         
-        if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
-            if userDefaults.boolForKey("open") {
+        if let userDefaults = UserDefaults(suiteName: self.groupID) {
+            if userDefaults.bool(forKey: "open") {
                 self.lblDescription.setHidden(true)
                 self.btnBegin.setHidden(false)
             }
         }
         
-        wormhole.listenForMessageWithIdentifier("open", listener: { (messageObject) -> Void in
-            if let message: AnyObject = messageObject {
+        wormhole.listenForMessage(withIdentifier: "open", listener: { (messageObject) -> Void in
+            if let message: AnyObject = messageObject as AnyObject? {
                 let isOpen = message["value"] as! Bool
                 if isOpen {
                     self.lblDescription.setHidden(true)
@@ -62,14 +62,14 @@ class InterfaceController: WKInterfaceController, HCStaticTimerDelegate {
         
         WKInterfaceController.openParentApplication([:], reply: { (reply, error) -> Void in
             if error == nil && reply["logo"] != nil {
-                self.imgLogo.setImage(UIImage(data: (reply["logo"] as? NSData)!))
+                self.imgLogo.setImage(UIImage(data: (reply["logo"] as? Data)!))
             }
         })
         
         if timer.isRunning() {
             lblTimer.setText(TimerInterfaceController.convertValueToString(timer.elapseTime))
-        } else if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
-            let elapseTime = userDefaults.integerForKey("timerValue")
+        } else if let userDefaults = UserDefaults(suiteName: self.groupID) {
+            let elapseTime = userDefaults.integer(forKey: "timerValue")
             lblTimer.setText(TimerInterfaceController.convertValueToString(elapseTime))
             elapseTime == 0 ? btnBegin.setEnabled(false) : btnBegin.setEnabled(true)
         }
@@ -81,12 +81,12 @@ class InterfaceController: WKInterfaceController, HCStaticTimerDelegate {
         
         if wormhole != nil {
             print("stop listening?")
-            wormhole.stopListeningForMessageWithIdentifier("open")
+            wormhole.stopListeningForMessage(withIdentifier: "open")
         }
     }
     
     @IBAction func openTimer() {
-        presentControllerWithName("timerView", context: self)
+        presentController(withName: "timerView", context: self)
     }
     
     // MANUAL START & FINISH
@@ -95,15 +95,15 @@ class InterfaceController: WKInterfaceController, HCStaticTimerDelegate {
             timer.endTimer()
             
             // end of presentation
-            wormhole.passMessageObject(["value":true], identifier: "blurMode")
+            wormhole.passMessageObject(["value":true] as NSCoding, identifier: "blurMode")
             
             btnBegin.setTitle(kBeginText)
-            lblTimer.setTextColor(UIColor.whiteColor())
+            lblTimer.setTextColor(UIColor.white)
         } else {
             timer.startTimer()
             
             // start of presentation
-            wormhole.passMessageObject(["value":false], identifier: "blurMode")
+            wormhole.passMessageObject(["value":false] as NSCoding, identifier: "blurMode")
             
             btnBegin.setTitle(kEndText)
         }
@@ -118,7 +118,7 @@ class InterfaceController: WKInterfaceController, HCStaticTimerDelegate {
     func didUpdateTimer() {
         // set red alert when getting closer to the end
         if timer.elapseTime < 10 && timer.isRunning() {
-            lblTimer.setTextColor(UIColor.redColor())
+            lblTimer.setTextColor(UIColor.red)
         }
         
         // reset the timer at the end
@@ -126,11 +126,11 @@ class InterfaceController: WKInterfaceController, HCStaticTimerDelegate {
             // Reset data
             isBlurModeOff = !isBlurModeOff
             btnBegin.setTitle(kBeginText)
-            lblTimer.setTextColor(UIColor.whiteColor())
+            lblTimer.setTextColor(UIColor.white)
             
             
             // end of presentation
-            wormhole.passMessageObject(["value":true], identifier: "blurMode")
+            wormhole.passMessageObject(["value":true] as NSCoding, identifier: "blurMode")
         }
         
         lblTimer.setText(TimerInterfaceController.convertValueToString(timer.elapseTime))

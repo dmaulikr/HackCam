@@ -16,12 +16,12 @@ class GlanceController: WKInterfaceController, HCStaticTimerDelegate {
     @IBOutlet weak var imgLogo: WKInterfaceImage!
     @IBOutlet weak var lblDesc: WKInterfaceLabel!
     
-    private let groupID = "group.a.HackCam.WatchKit"
+    fileprivate let groupID = "group.a.HackCam.WatchKit"
     
-    private let timer = HCStaticTimer.sharedTimer()
+    fileprivate let timer = HCStaticTimer.sharedTimer()
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
     }
 
     override func willActivate() {
@@ -33,20 +33,20 @@ class GlanceController: WKInterfaceController, HCStaticTimerDelegate {
         // Configure interface objects here.
         WKInterfaceController.openParentApplication([:], reply: { (reply, error) -> Void in
             if error == nil && reply["logo"] != nil {
-                self.imgLogo.setImage(UIImage(data: (reply["logo"] as? NSData)!))
+                self.imgLogo.setImage(UIImage(data: (reply["logo"] as? Data)!))
             }
         })
         
         // Set the timer
         if timer.isRunning() {
             lblTimer.setText(TimerInterfaceController.convertValueToString(timer.elapseTime))
-        } else if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
-            lblTimer.setText(TimerInterfaceController.convertValueToString(userDefaults.integerForKey("timerValue")))
+        } else if let userDefaults = UserDefaults(suiteName: self.groupID) {
+            lblTimer.setText(TimerInterfaceController.convertValueToString(userDefaults.integer(forKey: "timerValue")))
         }
         
         // Set the description title
-        if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
-            let time = userDefaults.integerForKey("timerValue")
+        if let userDefaults = UserDefaults(suiteName: self.groupID) {
+            let time = userDefaults.integer(forKey: "timerValue")
             if time < 60 {
                 lblDesc.setText("The timer is currently set to \(time) seconds. Change it on your iPhone.")
             } else {
@@ -63,12 +63,12 @@ class GlanceController: WKInterfaceController, HCStaticTimerDelegate {
     func didUpdateTimer() {
         // set red alert when getting closer to the end
         if timer.elapseTime < 10 && timer.isRunning() {
-            lblTimer.setTextColor(UIColor.redColor())
+            lblTimer.setTextColor(UIColor.red)
         }
         
         // reset the timer at the end
         if timer.elapseTime <= 0 {
-            lblTimer.setTextColor(UIColor.whiteColor())
+            lblTimer.setTextColor(UIColor.white)
         }
         
         lblTimer.setText(TimerInterfaceController.convertValueToString(timer.elapseTime))

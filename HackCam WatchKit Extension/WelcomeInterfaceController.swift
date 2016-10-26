@@ -12,18 +12,18 @@ import Foundation
 
 class WelcomeInterfaceController: WKInterfaceController {
 
-    private var wormhole: MMWormhole!
+    fileprivate var wormhole: MMWormhole!
     
-    private let groupID = "group.a.HackCam.WatchKit"
+    fileprivate let groupID = "group.a.HackCam.WatchKit"
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
         // Configure interface objects here.
         
-        if let bool = NSUserDefaults(suiteName: self.groupID)?.boolForKey("tutorialSkipped") {
+        if let bool = UserDefaults(suiteName: self.groupID)?.bool(forKey: "tutorialSkipped") {
             if bool {
-                WKInterfaceController.reloadRootControllersWithNames(["mainView"], contexts: nil)
+                WKInterfaceController.reloadRootControllers(withNames: ["mainView"], contexts: nil)
             }
         }
     }
@@ -34,9 +34,9 @@ class WelcomeInterfaceController: WKInterfaceController {
         
         wormhole = MMWormhole(applicationGroupIdentifier: self.groupID, optionalDirectory: nil)
         
-        wormhole.listenForMessageWithIdentifier("tutorial", listener: { (messageObject) -> Void in
-            if let _: AnyObject = messageObject {
-                WKInterfaceController.reloadRootControllersWithNames(["mainView"], contexts: nil)
+        wormhole.listenForMessage(withIdentifier: "tutorial", listener: { (messageObject) -> Void in
+            if let _: AnyObject = messageObject as AnyObject? {
+                WKInterfaceController.reloadRootControllers(withNames: ["mainView"], contexts: nil)
             }
         })
     }
@@ -47,7 +47,7 @@ class WelcomeInterfaceController: WKInterfaceController {
         
         if wormhole != nil {
             print("stop listening?")
-            self.wormhole.stopListeningForMessageWithIdentifier("tutorial")
+            self.wormhole.stopListeningForMessage(withIdentifier: "tutorial")
         }
     }
 

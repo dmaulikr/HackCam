@@ -25,25 +25,25 @@ class HC_PageViewController: UIPageViewController, UIPageViewControllerDataSourc
         // Dispose of any resources that can be recreated.
     }
     
-    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
-        return .LandscapeLeft
+    override var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
+        return .landscapeLeft
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if index == 0 {
             return nil
         }
         
-        index--
+        index -= 1
         return self.viewControllers![index] as UIViewController
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if index == NSNotFound {
             return nil
         }
         
-        index++
+        index += 1
         if index == self.viewControllers!.count {
             return nil
         }

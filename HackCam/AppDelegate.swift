@@ -7,46 +7,70 @@
 //
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private var wormhole: MMWormhole!
-    private let groupID = "group.a.HackCam.WatchKit"
+    fileprivate var wormhole: MMWormhole!
+    fileprivate let groupID = "group.a.HackCam.WatchKit"
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // Determine iPhone Model
-        var systemInfo = [UInt8](count: sizeof(utsname), repeatedValue: 0)
-        let model: String = systemInfo.withUnsafeMutableBufferPointer { (inout body: UnsafeMutableBufferPointer<UInt8>) -> String? in
+        var systemInfo = [UInt8](repeating: 0, count: sizeof(utsname))
+        let model: String = systemInfo.withUnsafeMutableBufferPointer { (body: inout UnsafeMutableBufferPointer<UInt8>) -> String? in
             if uname(UnsafeMutablePointer(body.baseAddress)) != 0 {
                 return nil
             }
-            return String.fromCString(UnsafePointer(body.baseAddress.advancedBy(Int(_SYS_NAMELEN * 4))))
+            return String(cString: UnsafePointer(body.baseAddress.advanced(by: Int(_SYS_NAMELEN * 4))))
             }!
         print(Array(model.characters))
         let modelArray = Array(model.characters)
         if modelArray.count > 6 {
             if Int(String(Array(model.characters)[6])) >= 7 {
-                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "iPhone6andLater")
+                UserDefaults.standard.set(true, forKey: "iPhone6andLater")
             } else {
-                NSUserDefaults.standardUserDefaults().setBool(false, forKey: "iPhone6andLater")
+                UserDefaults.standard.set(false, forKey: "iPhone6andLater")
             }
         } else {
-            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "iPhone6andLater")
+            UserDefaults.standard.set(false, forKey: "iPhone6andLater")
         }
         
         // Register notification
         wormhole = MMWormhole(applicationGroupIdentifier: self.groupID, optionalDirectory: nil)
         
-        let ud = NSUserDefaults(suiteName: self.groupID)
-        if let bool = ud?.boolForKey("tutorialSkipped") {
+        let ud = UserDefaults(suiteName: self.groupID)
+        if let bool = ud?.bool(forKey: "tutorialSkipped") {
             if bool {
-                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                self.window = UIWindow(frame: UIScreen.main.bounds)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = storyboard.instantiateViewControllerWithIdentifier("CameraView") as! HC_MainViewController
+                let viewController = storyboard.instantiateViewController(withIdentifier: "CameraView") as! HC_MainViewController
                 
                 self.window?.rootViewController = viewController
                 self.window?.makeKeyAndVisible()
@@ -55,49 +79,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Set initial timer value at the beggining
         if let userDefaults = ud {
-            if userDefaults.integerForKey("timerValue") == 0 { userDefaults.setInteger(60, forKey: "timerValue") }
+            if userDefaults.integer(forKey: "timerValue") == 0 { userDefaults.set(60, forKey: "timerValue") }
         }
         
         return true
     }
 
-    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]?) -> Void)) {
+    func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [AnyHashable: Any]?, reply: (@escaping ([AnyHashable: Any]?) -> Void)) {
         
-        var retValues = Dictionary<String,NSData>()
+        var retValues = Dictionary<String,Data>()
         
-        if let userDefaults = NSUserDefaults(suiteName: self.groupID) {
-            retValues["logo"] = userDefaults.objectForKey("storedLogoImage") as? NSData
+        if let userDefaults = UserDefaults(suiteName: self.groupID) {
+            retValues["logo"] = userDefaults.object(forKey: "storedLogoImage") as? Data
         }
         
         reply(retValues)
         
     }
     
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
 
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
 
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         
         wormhole.passMessageObject(["value":false], identifier: "open")
-        NSUserDefaults(suiteName: self.groupID)?.setBool(false, forKey: "open")
+        UserDefaults(suiteName: self.groupID)?.set(false, forKey: "open")
         
-        wormhole.stopListeningForMessageWithIdentifier("blurMode")
+        wormhole.stopListeningForMessage(withIdentifier: "blurMode")
     }
 
 }
