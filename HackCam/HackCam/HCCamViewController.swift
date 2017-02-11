@@ -59,6 +59,13 @@ class HCCamViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         captureSession.startRunning()
+        // Disable Screen Lock
+        UIApplication.shared.isIdleTimerDisabled = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // Enable Screen Lock
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     override func viewDidLayoutSubviews() {
