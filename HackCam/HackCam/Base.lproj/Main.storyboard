@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,24 +21,61 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="29l-jA-vp5">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HCLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Yex-r6-YkW">
+                                <rect key="frame" x="558" y="266" width="89" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="89" id="8sc-he-AAe"/>
+                                    <constraint firstAttribute="width" constant="89" id="DUl-ZG-cLx"/>
+                                </constraints>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hB-Hd-cyH">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Pq7-c7-akp">
+                                    <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HCLogo" translatesAutoresizingMaskIntoConstraints="NO" id="0qY-E4-8Ss">
+                                            <rect key="frame" x="133.5" y="37.5" width="400" height="300"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="0qY-E4-8Ss" secondAttribute="height" multiplier="4:3" id="Jji-aS-9dx"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0qY-E4-8Ss" firstAttribute="centerY" secondItem="Pq7-c7-akp" secondAttribute="centerY" id="Lsv-Jh-6t9"/>
+                                        <constraint firstItem="0qY-E4-8Ss" firstAttribute="width" secondItem="Pq7-c7-akp" secondAttribute="width" multiplier="0.6" id="UYM-lZ-TaO"/>
+                                        <constraint firstItem="0qY-E4-8Ss" firstAttribute="centerX" secondItem="Pq7-c7-akp" secondAttribute="centerX" id="w0T-Ul-QIn"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yex-r6-YkW" secondAttribute="trailing" id="6Zx-7o-ixa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Yex-r6-YkW" secondAttribute="bottom" constant="20" id="7LS-bJ-D8C"/>
+                            <constraint firstItem="5hB-Hd-cyH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="EUg-PR-auI"/>
                             <constraint firstItem="29l-jA-vp5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JYH-Dk-zZy"/>
                             <constraint firstItem="29l-jA-vp5" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="LcI-kY-fRN"/>
                             <constraint firstItem="29l-jA-vp5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="O6Q-bo-G8X"/>
+                            <constraint firstItem="5hB-Hd-cyH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cTS-Jk-OD4"/>
                             <constraint firstItem="29l-jA-vp5" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="lGL-Qp-SPN"/>
+                            <constraint firstItem="5hB-Hd-cyH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="siK-O4-8DJ"/>
+                            <constraint firstItem="5hB-Hd-cyH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="yle-9e-gTA"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="camView" destination="29l-jA-vp5" id="DXv-PY-zNz"/>
+                        <outlet property="logoImgView" destination="Yex-r6-YkW" id="FRb-jd-TYc"/>
+                        <outlet property="logoImgViewBottomConstr" destination="7LS-bJ-D8C" id="9qj-bU-1wd"/>
+                        <outlet property="visualEffectView" destination="5hB-Hd-cyH" id="Ymx-jx-R8f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -43,4 +83,7 @@
             <point key="canvasLocation" x="138.40000000000001" y="127.28635682158921"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HCLogo" width="1024" height="1024"/>
+    </resources>
 </document>

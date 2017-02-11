@@ -102,10 +102,10 @@
 				118ED9FD1DEB3FDB0040E8DC /* AppDelegate.swift */,
 				118ED9FF1DEB3FDB0040E8DC /* ViewController.swift */,
 				118EDA011DEB3FDB0040E8DC /* Main.storyboard */,
+				111A59481E4E1E4200500D5C /* HCCamViewController.swift */,
 				118EDA041DEB3FDB0040E8DC /* Assets.xcassets */,
 				118EDA061DEB3FDB0040E8DC /* LaunchScreen.storyboard */,
 				118EDA091DEB3FDB0040E8DC /* Info.plist */,
-				111A59481E4E1E4200500D5C /* HCCamViewController.swift */,
 			);
 			path = HackCam;
 			sourceTree = "<group>";
@@ -190,6 +190,7 @@
 		118ED9F21DEB3FDB0040E8DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = HC;
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Clarence Ji";
