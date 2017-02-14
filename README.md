@@ -11,4 +11,4 @@ By tapping the logo, the whole camera view will be blurred just in case you woul
 
 HackCam was inspired by members of KCL Tech Society at King's College London. The app was developed during the preparation of HackLondon, the most anticipated student hackathon in UK and EU. HackLondon adopted the app and used it as a "connector" between presenters' laptops/devices and the projector screen. So devices did not have to be connected and disconnected back and forth.
 
-<a href="https://geo.itunes.apple.com/app/hackcam/id983361936?ls=1&mt=8" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;"></a>
+<a href="https://geo.itunes.apple.com/app/hackcam/id983361936?ls=1&mt=8" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;">Download on the App Store</a>
