@@ -15,15 +15,21 @@ class HCCamViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBOutlet weak var logoImgView: UIImageView!
     @IBOutlet weak var logoImgViewBottomConstr: NSLayoutConstraint!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var bigLogoImageView: UIImageView!
+    @IBOutlet weak var previewInteractionVEView: UIVisualEffectView!
+    @IBOutlet weak var forceTouchPrompt: UILabel!
+    @IBOutlet weak var newUserPrompt: UILabel!
     
     // Camera
-    let captureSession = AVCaptureSession()
-    var camera: AVCaptureDevice?
-    var sessionOutput = AVCaptureVideoDataOutput()
-    var sessionOutputSetting = AVCapturePhotoSettings(format: [AVVideoCodecKey:AVVideoCodecH264])
-    let photoOutput = AVCapturePhotoOutput()
-    var previewLayer = AVCaptureVideoPreviewLayer()
+    fileprivate let captureSession = AVCaptureSession()
+    fileprivate var camera: AVCaptureDevice?
+    fileprivate var sessionOutput = AVCaptureVideoDataOutput()
+    fileprivate var sessionOutputSetting = AVCapturePhotoSettings(format: [AVVideoCodecKey:AVVideoCodecH264])
+    fileprivate let photoOutput = AVCapturePhotoOutput()
+    fileprivate var previewLayer = AVCaptureVideoPreviewLayer()
 
+    fileprivate var previewInteraction: UIPreviewInteraction!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,6 +52,14 @@ class HCCamViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(smallLogoTapped))
         self.logoImgView.addGestureRecognizer(gestureRecognizer)
         
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(smallLogoLongPressed(sender:)))
+        longPressGestureRecognizer.minimumPressDuration = 3
+        self.logoImgView.addGestureRecognizer(longPressGestureRecognizer)
+        
+        // Preview Blur Layer Gesture Recognizer
+        let gestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(previewInteractionVETapped))
+        self.previewInteractionVEView.addGestureRecognizer(gestureRecognizer1)
+        
         // Initially hide the visual effect view and big logo
         self.visualEffectView.alpha = 0
         self.visualEffectView.isHidden = true
@@ -55,6 +69,32 @@ class HCCamViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         let gestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(visualEffectViewTapped))
         self.visualEffectView.addGestureRecognizer(gestureRecognizer2)
         
+        // Hide back button
+        self.navigationItem.hidesBackButton = true
+        
+        // Set Logo
+        if let data: Data = UserDefaults.standard.object(forKey: "storedLogoImage") as? Data {
+            let image = UIImage(data: data)
+            self.logoImgView.image = image
+            self.bigLogoImageView.image = image
+        }
+        
+        // UIPreviewInteraction (3D Touch)
+        self.previewInteraction = UIPreviewInteraction(view: self.view)
+        self.previewInteraction.delegate = self
+        self.forceTouchPrompt.layer.cornerRadius = 5
+        self.forceTouchPrompt.clipsToBounds = true
+        
+        // If first time, show prompt
+        if UserDefaults.standard.bool(forKey: "HCNewUserPromptSeen") != true {
+            self.newUserPrompt.alpha = 1
+            self.newUserPrompt.layer.cornerRadius = 6
+            self.newUserPrompt.clipsToBounds = true
+        }
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -104,6 +144,20 @@ class HCCamViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
     }
     
+    @objc private func smallLogoLongPressed(sender: UILongPressGestureRecognizer) {
+        
+        if sender.state == .began {
+            
+            DispatchQueue.main.async {
+                _ = self.navigationController?.popViewController(animated: true)
+            }
+            
+        } else {
+            return
+        }
+        
+    }
+    
     @objc private func visualEffectViewTapped() {
         
         UIView.animate(withDuration: 0.6, animations: { 
@@ -111,6 +165,14 @@ class HCCamViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             self.visualEffectView.alpha = 0
         }) { (_) in
             self.visualEffectView.isHidden = true
+        }
+        
+    }
+    
+    @objc private func previewInteractionVETapped() {
+        
+        UIView.animate(withDuration: 0.3) { 
+            self.previewInteractionVEView.alpha = 0
         }
         
     }
@@ -165,4 +227,53 @@ class HCCamViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
     }
 
+    @IBAction func promptTextTapped(_ sender: UITapGestureRecognizer) {
+        
+        UIView.animate(withDuration: 0.4, animations: { 
+            self.newUserPrompt.alpha = 0
+        }) { (_) in
+            self.newUserPrompt.isHidden = true
+            UserDefaults.standard.set(true, forKey: "HCNewUserPromptSeen")
+        }
+        
+    }
+    
+}
+
+extension HCCamViewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+}
+
+extension HCCamViewController: UIPreviewInteractionDelegate {
+    
+    func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdatePreviewTransition transitionProgress: CGFloat, ended: Bool) {
+        
+        UIView.animate(withDuration: 0.2) { 
+            self.previewInteractionVEView.alpha = transitionProgress
+        }
+        
+    }
+    
+    func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdateCommitTransition transitionProgress: CGFloat, ended: Bool) {
+        
+        if ended {
+            DispatchQueue.main.async {
+                _ = self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
+    }
+    
+    func previewInteractionDidCancel(_ previewInteraction: UIPreviewInteraction) {
+        
+        UIView.animate(withDuration: 0.3) { 
+            self.previewInteractionVEView.alpha = 0
+        }
+        
+    }
+    
 }

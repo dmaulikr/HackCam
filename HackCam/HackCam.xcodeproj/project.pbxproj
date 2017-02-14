@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		111A59491E4E1E4200500D5C /* HCCamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A59481E4E1E4200500D5C /* HCCamViewController.swift */; };
+		114797421E524C7F008DD203 /* HCMainNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114797411E524C7F008DD203 /* HCMainNavViewController.swift */; };
 		118ED9FE1DEB3FDB0040E8DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118ED9FD1DEB3FDB0040E8DC /* AppDelegate.swift */; };
 		118EDA001DEB3FDB0040E8DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118ED9FF1DEB3FDB0040E8DC /* ViewController.swift */; };
 		118EDA031DEB3FDB0040E8DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118EDA011DEB3FDB0040E8DC /* Main.storyboard */; };
@@ -15,6 +16,16 @@
 		118EDA081DEB3FDB0040E8DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118EDA061DEB3FDB0040E8DC /* LaunchScreen.storyboard */; };
 		118EDA131DEB3FDB0040E8DC /* HackCamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118EDA121DEB3FDB0040E8DC /* HackCamTests.swift */; };
 		118EDA1E1DEB3FDB0040E8DC /* HackCamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118EDA1D1DEB3FDB0040E8DC /* HackCamUITests.swift */; };
+		11A34B571E512AD20083BEBA /* Staples Center.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 11A34B561E512AD20083BEBA /* Staples Center.gpx */; };
+		11A34B591E5134600083BEBA /* HCTutorial1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A34B581E5134600083BEBA /* HCTutorial1ViewController.swift */; };
+		11A34B5B1E5139EA0083BEBA /* HCTutorial2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A34B5A1E5139EA0083BEBA /* HCTutorial2ViewController.swift */; };
+		11A34B5D1E513C000083BEBA /* HCTutorial3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A34B5C1E513C000083BEBA /* HCTutorial3ViewController.swift */; };
+		11B18D6F1E50D8F700AF1C50 /* PanoramaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B18D6D1E50D8F700AF1C50 /* PanoramaView.swift */; };
+		11B18D701E50D8F700AF1C50 /* PanoramaIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B18D6E1E50D8F700AF1C50 /* PanoramaIndicator.swift */; };
+		11B18D721E50DAEE00AF1C50 /* HCTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B18D711E50DAEE00AF1C50 /* HCTutorialViewController.swift */; };
+		11B18D741E510C6D00AF1C50 /* HCTutorialNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B18D731E510C6D00AF1C50 /* HCTutorialNavViewController.swift */; };
+		11F31B9C1E51FC8F009D514B /* HCMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F31B9B1E51FC8F009D514B /* HCMenuViewController.swift */; };
+		11F31B9F1E523A3F009D514B /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F31B9D1E523A3F009D514B /* Tutorial.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		111A59481E4E1E4200500D5C /* HCCamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCCamViewController.swift; sourceTree = "<group>"; };
+		114797411E524C7F008DD203 /* HCMainNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCMainNavViewController.swift; sourceTree = "<group>"; };
 		118ED9FA1DEB3FDB0040E8DC /* HackCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		118ED9FD1DEB3FDB0040E8DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		118ED9FF1DEB3FDB0040E8DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +61,16 @@
 		118EDA191DEB3FDB0040E8DC /* HackCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		118EDA1D1DEB3FDB0040E8DC /* HackCamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackCamUITests.swift; sourceTree = "<group>"; };
 		118EDA1F1DEB3FDB0040E8DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11A34B561E512AD20083BEBA /* Staples Center.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Staples Center.gpx"; sourceTree = "<group>"; };
+		11A34B581E5134600083BEBA /* HCTutorial1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCTutorial1ViewController.swift; sourceTree = "<group>"; };
+		11A34B5A1E5139EA0083BEBA /* HCTutorial2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCTutorial2ViewController.swift; sourceTree = "<group>"; };
+		11A34B5C1E513C000083BEBA /* HCTutorial3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCTutorial3ViewController.swift; sourceTree = "<group>"; };
+		11B18D6D1E50D8F700AF1C50 /* PanoramaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaView.swift; sourceTree = "<group>"; };
+		11B18D6E1E50D8F700AF1C50 /* PanoramaIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaIndicator.swift; sourceTree = "<group>"; };
+		11B18D711E50DAEE00AF1C50 /* HCTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCTutorialViewController.swift; sourceTree = "<group>"; };
+		11B18D731E510C6D00AF1C50 /* HCTutorialNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCTutorialNavViewController.swift; sourceTree = "<group>"; };
+		11F31B9B1E51FC8F009D514B /* HCMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCMenuViewController.swift; sourceTree = "<group>"; };
+		11F31B9E1E523A3F009D514B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tutorial.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +121,19 @@
 		118ED9FC1DEB3FDB0040E8DC /* HackCam */ = {
 			isa = PBXGroup;
 			children = (
+				11A34B561E512AD20083BEBA /* Staples Center.gpx */,
+				11B18D6C1E50D8E900AF1C50 /* External Libraries */,
 				118ED9FD1DEB3FDB0040E8DC /* AppDelegate.swift */,
 				118ED9FF1DEB3FDB0040E8DC /* ViewController.swift */,
 				118EDA011DEB3FDB0040E8DC /* Main.storyboard */,
+				11F31B9D1E523A3F009D514B /* Tutorial.storyboard */,
+				11B18D731E510C6D00AF1C50 /* HCTutorialNavViewController.swift */,
+				11B18D711E50DAEE00AF1C50 /* HCTutorialViewController.swift */,
+				11A34B581E5134600083BEBA /* HCTutorial1ViewController.swift */,
+				11A34B5A1E5139EA0083BEBA /* HCTutorial2ViewController.swift */,
+				11A34B5C1E513C000083BEBA /* HCTutorial3ViewController.swift */,
+				114797411E524C7F008DD203 /* HCMainNavViewController.swift */,
+				11F31B9B1E51FC8F009D514B /* HCMenuViewController.swift */,
 				111A59481E4E1E4200500D5C /* HCCamViewController.swift */,
 				118EDA041DEB3FDB0040E8DC /* Assets.xcassets */,
 				118EDA061DEB3FDB0040E8DC /* LaunchScreen.storyboard */,
@@ -126,6 +158,15 @@
 				118EDA1F1DEB3FDB0040E8DC /* Info.plist */,
 			);
 			path = HackCamUITests;
+			sourceTree = "<group>";
+		};
+		11B18D6C1E50D8E900AF1C50 /* External Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				11B18D6D1E50D8F700AF1C50 /* PanoramaView.swift */,
+				11B18D6E1E50D8F700AF1C50 /* PanoramaIndicator.swift */,
+			);
+			name = "External Libraries";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +280,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11F31B9F1E523A3F009D514B /* Tutorial.storyboard in Resources */,
+				11A34B571E512AD20083BEBA /* Staples Center.gpx in Resources */,
 				118EDA081DEB3FDB0040E8DC /* LaunchScreen.storyboard in Resources */,
 				118EDA051DEB3FDB0040E8DC /* Assets.xcassets in Resources */,
 				118EDA031DEB3FDB0040E8DC /* Main.storyboard in Resources */,
@@ -266,9 +309,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				114797421E524C7F008DD203 /* HCMainNavViewController.swift in Sources */,
 				118EDA001DEB3FDB0040E8DC /* ViewController.swift in Sources */,
+				11A34B591E5134600083BEBA /* HCTutorial1ViewController.swift in Sources */,
+				11A34B5B1E5139EA0083BEBA /* HCTutorial2ViewController.swift in Sources */,
 				118ED9FE1DEB3FDB0040E8DC /* AppDelegate.swift in Sources */,
 				111A59491E4E1E4200500D5C /* HCCamViewController.swift in Sources */,
+				11B18D741E510C6D00AF1C50 /* HCTutorialNavViewController.swift in Sources */,
+				11B18D721E50DAEE00AF1C50 /* HCTutorialViewController.swift in Sources */,
+				11B18D701E50D8F700AF1C50 /* PanoramaIndicator.swift in Sources */,
+				11F31B9C1E51FC8F009D514B /* HCMenuViewController.swift in Sources */,
+				11B18D6F1E50D8F700AF1C50 /* PanoramaView.swift in Sources */,
+				11A34B5D1E513C000083BEBA /* HCTutorial3ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +370,14 @@
 				118EDA071DEB3FDB0040E8DC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		11F31B9D1E523A3F009D514B /* Tutorial.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11F31B9E1E523A3F009D514B /* Base */,
+			);
+			name = Tutorial.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -429,6 +489,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cjnet.HackCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -443,6 +504,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cjnet.HackCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
