@@ -91,6 +91,7 @@ class HCCamViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             self.newUserPrompt.layer.cornerRadius = 6
             self.newUserPrompt.clipsToBounds = true
         }
+        
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -180,9 +181,9 @@ class HCCamViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     /// Initialize Camera
     private func initCam() {
         
-        let devices = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInDuoCamera, .builtInTelephotoCamera], mediaType: AVMediaTypeVideo, position: .unspecified).devices
+        let devices = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInDuoCamera, .builtInTelephotoCamera], mediaType: AVMediaType.video, position: .unspecified).devices
         
-        for device in devices! {
+        for device in devices {
             
             if device.position == .back && device.deviceType == .builtInWideAngleCamera {
                 
@@ -190,12 +191,12 @@ class HCCamViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                 
                 do {
                     
-                    var finalFormat: AVCaptureDeviceFormat!
+                    var finalFormat: AVCaptureDevice.Format!
                     for vFormat in device.formats {
-                        var ranges = (vFormat as AnyObject).videoSupportedFrameRateRanges as![AVFrameRateRange]
+                        var ranges = (vFormat as AnyObject).videoSupportedFrameRateRanges as [AVCaptureDevice.Format.FrameRateRange]
                         let frameRates = ranges[0]
                         if frameRates.maxFrameRate == 60 {
-                            finalFormat = vFormat as! AVCaptureDeviceFormat
+                            finalFormat = vFormat 
                         }
                     }
                     
@@ -211,8 +212,8 @@ class HCCamViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                         device.unlockForConfiguration()
                         
                         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-                        previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-                        previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.portrait
+                        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+                        previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
                         camView.layer.addSublayer(previewLayer)
                         
                     }
@@ -262,6 +263,7 @@ extension HCCamViewController: UIPreviewInteractionDelegate {
         
         if ended {
             DispatchQueue.main.async {
+                self.navigationController?.isNavigationBarHidden = false
                 _ = self.navigationController?.popViewController(animated: true)
             }
         }

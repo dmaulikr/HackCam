@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oPe-Re-5Eh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oPe-Re-5Eh">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,35 +20,34 @@
                         <viewControllerLayoutGuide type="bottom" id="zNx-QB-zjm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OTh-PU-rgJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HackCam" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkf-DV-ZqX">
-                                <rect key="frame" x="111" y="189" width="153" height="40"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HackCam" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkf-DV-ZqX">
+                                <rect key="frame" x="90" y="178.5" width="196.5" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="42"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn your phone into a visualizer system" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBK-pG-cvY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn your phone into a visualizer system" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBK-pG-cvY">
                                 <rect key="frame" x="35" y="237" width="304" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CU7-ol-4Q6">
-                                <rect key="frame" x="142.5" y="164" width="90" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CU7-ol-4Q6">
+                                <rect key="frame" x="127" y="148" width="121.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1A-kH-lbn">
-                                <rect key="frame" x="120" y="545" width="135" height="43"/>
+                                <rect key="frame" x="37.5" y="536" width="300" height="52"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.59215686270000001" blue="0.98823529409999999" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="aRo-Ur-EGk"/>
-                                    <constraint firstAttribute="width" constant="135" id="oaB-wb-JM9"/>
+                                    <constraint firstAttribute="height" constant="52" id="aRo-Ur-EGk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Get Started">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -52,10 +56,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOK-VA-vgf">
-                                <rect key="frame" x="145" y="596" width="85" height="44"/>
+                                <rect key="frame" x="144" y="596" width="87" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="yP6-9Z-SSt"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Skip for now">
                                     <color key="titleColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                                 </state>
@@ -76,11 +81,12 @@
                             <constraint firstItem="Nkf-DV-ZqX" firstAttribute="top" secondItem="CU7-ol-4Q6" secondAttribute="bottom" constant="4" id="a5f-kL-JRl"/>
                             <constraint firstItem="xBK-pG-cvY" firstAttribute="top" secondItem="Nkf-DV-ZqX" secondAttribute="bottom" constant="8" id="cLg-31-FKE"/>
                             <constraint firstItem="T1A-kH-lbn" firstAttribute="centerX" secondItem="OTh-PU-rgJ" secondAttribute="centerX" id="ciC-VY-mDa"/>
+                            <constraint firstItem="T1A-kH-lbn" firstAttribute="width" secondItem="OTh-PU-rgJ" secondAttribute="width" multiplier="0.8" id="fzY-mM-pm0"/>
                             <constraint firstItem="xBK-pG-cvY" firstAttribute="centerX" secondItem="OTh-PU-rgJ" secondAttribute="centerX" id="kzD-5M-Opz"/>
                             <constraint firstItem="xBK-pG-cvY" firstAttribute="centerY" secondItem="OTh-PU-rgJ" secondAttribute="centerY" constant="-86" id="qyH-W2-VfU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UKp-el-jph"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="UKp-el-jph"/>
                     <connections>
                         <outlet property="getStartedButton" destination="T1A-kH-lbn" id="wTi-j8-UCa"/>
                         <outlet property="skipButton" destination="eOK-VA-vgf" id="xnS-sC-omu"/>
@@ -91,16 +97,16 @@
             </objects>
             <point key="canvasLocation" x="852" y="-627.4362818590705"/>
         </scene>
-        <!--Tutorial1 View Controller-->
+        <!--Step 1-->
         <scene sceneID="J1G-Hv-lAP">
             <objects>
-                <viewController id="Zef-BQ-xGT" customClass="HCTutorial1ViewController" customModule="HackCam" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Step 1" id="Zef-BQ-xGT" customClass="HCTutorial1ViewController" customModule="HackCam" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G0I-Ys-foi"/>
                         <viewControllerLayoutGuide type="bottom" id="Tlh-Gr-Mc7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aV3-k1-a1z">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orientationLock" translatesAutoresizingMaskIntoConstraints="NO" id="2aP-Hh-CiI">
@@ -117,13 +123,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEE-VV-Vc7">
-                                <rect key="frame" x="120" y="545" width="135" height="43"/>
+                                <rect key="frame" x="37.5" y="536" width="300" height="52"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.59215686270000001" blue="0.98823529409999999" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="jwP-nN-WOl"/>
-                                    <constraint firstAttribute="width" constant="135" id="sCz-ee-cwk"/>
+                                    <constraint firstAttribute="height" constant="52" id="jwP-nN-WOl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -138,6 +143,7 @@
                             <constraint firstItem="vEE-VV-Vc7" firstAttribute="centerX" secondItem="aV3-k1-a1z" secondAttribute="centerX" id="43R-LH-Jgj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eRd-LU-hgZ" secondAttribute="trailing" constant="20" id="45D-du-AZK"/>
                             <constraint firstItem="Tlh-Gr-Mc7" firstAttribute="top" secondItem="vEE-VV-Vc7" secondAttribute="bottom" constant="79" id="8Na-UA-83M"/>
+                            <constraint firstItem="vEE-VV-Vc7" firstAttribute="width" secondItem="aV3-k1-a1z" secondAttribute="width" multiplier="0.8" id="AXc-mL-Kv8"/>
                             <constraint firstAttribute="leadingMargin" secondItem="eRd-LU-hgZ" secondAttribute="leading" constant="-20" id="Xib-iB-fu1"/>
                             <constraint firstItem="eRd-LU-hgZ" firstAttribute="top" secondItem="2aP-Hh-CiI" secondAttribute="bottom" constant="8" id="bYf-9j-MGc"/>
                             <constraint firstItem="2aP-Hh-CiI" firstAttribute="centerX" secondItem="aV3-k1-a1z" secondAttribute="centerX" id="rHD-6P-1i9"/>
@@ -152,16 +158,16 @@
             </objects>
             <point key="canvasLocation" x="1597.5999999999999" y="-627.4362818590705"/>
         </scene>
-        <!--Tutorial2 View Controller-->
+        <!--Step 2-->
         <scene sceneID="LA5-NJ-w5V">
             <objects>
-                <viewController id="4Ym-wX-5gi" customClass="HCTutorial2ViewController" customModule="HackCam" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Step 2" id="4Ym-wX-5gi" customClass="HCTutorial2ViewController" customModule="HackCam" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FyE-OQ-73U"/>
                         <viewControllerLayoutGuide type="bottom" id="oOA-6M-zP4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5mG-q2-NQS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quickTime" translatesAutoresizingMaskIntoConstraints="NO" id="S3R-st-pWV">
@@ -178,13 +184,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbb-5t-IHu">
-                                <rect key="frame" x="120" y="545" width="135" height="43"/>
+                                <rect key="frame" x="37.5" y="536" width="300" height="52"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.59215686270000001" blue="0.98823529409999999" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="135" id="D9m-3U-ilM"/>
-                                    <constraint firstAttribute="height" constant="43" id="JRm-nz-Wb9"/>
+                                    <constraint firstAttribute="height" constant="52" id="JRm-nz-Wb9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -200,6 +205,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ZRt-bZ-6Yy" secondAttribute="trailing" constant="20" id="7TV-7R-Ufg"/>
                             <constraint firstItem="oOA-6M-zP4" firstAttribute="top" secondItem="cbb-5t-IHu" secondAttribute="bottom" constant="79" id="Jb2-Hi-e66"/>
                             <constraint firstItem="ZRt-bZ-6Yy" firstAttribute="centerY" secondItem="5mG-q2-NQS" secondAttribute="centerY" constant="-71" id="NrN-BP-NDJ"/>
+                            <constraint firstItem="cbb-5t-IHu" firstAttribute="width" secondItem="5mG-q2-NQS" secondAttribute="width" multiplier="0.8" id="TGX-fJ-mWL"/>
                             <constraint firstItem="ZRt-bZ-6Yy" firstAttribute="centerX" secondItem="5mG-q2-NQS" secondAttribute="centerX" id="a6N-pa-dq1"/>
                             <constraint firstItem="cbb-5t-IHu" firstAttribute="centerX" secondItem="5mG-q2-NQS" secondAttribute="centerX" id="bn1-51-lDG"/>
                             <constraint firstItem="ZRt-bZ-6Yy" firstAttribute="top" secondItem="S3R-st-pWV" secondAttribute="bottom" constant="8" id="dxZ-e7-lKG"/>
@@ -215,26 +221,25 @@
             </objects>
             <point key="canvasLocation" x="2306" y="-627"/>
         </scene>
-        <!--Tutorial3 View Controller-->
+        <!--Step 3-->
         <scene sceneID="RkW-in-e33">
             <objects>
-                <viewController id="GVx-9f-sLA" customClass="HCTutorial3ViewController" customModule="HackCam" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Step 3" id="GVx-9f-sLA" customClass="HCTutorial3ViewController" customModule="HackCam" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bQW-cV-YXk"/>
                         <viewControllerLayoutGuide type="bottom" id="gdK-ax-xUs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsi-IN-BWz">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwX-c8-oqo">
-                                <rect key="frame" x="120" y="545" width="135" height="43"/>
+                                <rect key="frame" x="37.5" y="536" width="300" height="52"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.59215686270000001" blue="0.98823529409999999" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="VNx-1i-TNN"/>
-                                    <constraint firstAttribute="width" constant="135" id="eXf-E8-1DC"/>
+                                    <constraint firstAttribute="height" constant="52" id="VNx-1i-TNN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -263,6 +268,7 @@
                             <constraint firstItem="w9I-bs-f72" firstAttribute="leading" secondItem="tsi-IN-BWz" secondAttribute="leadingMargin" constant="-16" id="AWh-LK-9zx"/>
                             <constraint firstItem="gdK-ax-xUs" firstAttribute="top" secondItem="vwX-c8-oqo" secondAttribute="bottom" constant="79" id="E2j-8R-zz4"/>
                             <constraint firstItem="Uwd-Vb-JQk" firstAttribute="top" secondItem="w9I-bs-f72" secondAttribute="bottom" constant="8" id="UDA-IK-cIt"/>
+                            <constraint firstItem="vwX-c8-oqo" firstAttribute="width" secondItem="tsi-IN-BWz" secondAttribute="width" multiplier="0.8" id="ZBE-L1-fYv"/>
                             <constraint firstItem="vwX-c8-oqo" firstAttribute="centerX" secondItem="tsi-IN-BWz" secondAttribute="centerX" id="lBE-SM-Z3N"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Uwd-Vb-JQk" secondAttribute="trailing" constant="20" id="oKi-qv-l3p"/>
                             <constraint firstAttribute="trailingMargin" secondItem="w9I-bs-f72" secondAttribute="trailing" constant="-16" id="w6h-qn-RUs"/>
@@ -285,7 +291,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oPe-Re-5Eh" customClass="HCTutorialNavViewController" customModule="HackCam" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="QDq-fp-WcO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" largeTitles="YES" id="QDq-fp-WcO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -313,6 +319,6 @@
         <image name="quickTimeMac" width="433" height="244"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Is0-fX-QFL"/>
+        <segue reference="05Y-Jv-7a4"/>
     </inferredMetricsTieBreakers>
 </document>

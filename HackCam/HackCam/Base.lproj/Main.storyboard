@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bt4-2U-1iy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bt4-2U-1iy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Menu View Controller-->
+        <!--HackCam-->
         <scene sceneID="jf2-9J-D2b">
             <objects>
                 <viewController id="Nta-K7-0Bn" customClass="HCMenuViewController" customModule="HackCam" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,8 +24,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ruZ-78-BE0" userLabel="Camera Stack">
-                                <rect key="frame" x="114" y="207" width="146" height="25"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ruZ-78-BE0" userLabel="Camera Stack">
+                                <rect key="frame" x="22" y="195" width="341" height="25"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bw-q0-wyv">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="25"/>
@@ -39,8 +39,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Uj-gi-oUe">
-                                        <rect key="frame" x="38" y="0.0" width="108" height="25"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <rect key="frame" x="42" y="0.0" width="299" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Start Camera">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -50,8 +50,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="apP-Om-FqS" userLabel="Change Stack">
-                                <rect key="frame" x="114" y="252" width="146" height="26"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="apP-Om-FqS" userLabel="Change Stack">
+                                <rect key="frame" x="22" y="252" width="341" height="26"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzI-i6-P3X">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="26"/>
@@ -65,8 +65,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="urM-4K-Dvj">
-                                        <rect key="frame" x="38" y="0.0" width="108" height="26"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <rect key="frame" x="42" y="0.0" width="299" height="26"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Change Logo">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -96,20 +96,42 @@
                                     <constraint firstItem="MHY-EZ-tjW" firstAttribute="width" secondItem="ShK-70-jIv" secondAttribute="width" id="7fa-KL-IpM"/>
                                 </constraints>
                             </stackView>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpO-OE-HwX">
+                                <rect key="frame" x="65" y="236" width="310" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="TPB-sD-OmM"/>
+                                </constraints>
+                            </view>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Weh-9M-8VY">
+                                <rect key="frame" x="65" y="294" width="310" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="vPq-P5-bT4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="apP-Om-FqS" firstAttribute="top" secondItem="ruZ-78-BE0" secondAttribute="bottom" constant="20" id="1Er-qD-NiH"/>
-                            <constraint firstItem="ruZ-78-BE0" firstAttribute="centerX" secondItem="6AO-Wq-Gls" secondAttribute="centerX" id="3dF-Ju-1cK"/>
+                            <constraint firstAttribute="trailing" secondItem="ruZ-78-BE0" secondAttribute="trailing" constant="12" id="1rG-3O-egL"/>
+                            <constraint firstItem="lpO-OE-HwX" firstAttribute="leading" secondItem="6AO-Wq-Gls" secondAttribute="leading" constant="65" id="1wm-oL-kqa"/>
+                            <constraint firstItem="apP-Om-FqS" firstAttribute="leading" secondItem="6AO-Wq-Gls" secondAttribute="leading" constant="22" id="4q9-ZC-XfA"/>
+                            <constraint firstItem="lpO-OE-HwX" firstAttribute="top" secondItem="ruZ-78-BE0" secondAttribute="bottom" constant="16" id="56c-Nh-H90"/>
                             <constraint firstItem="skn-Th-jMG" firstAttribute="top" secondItem="ShK-70-jIv" secondAttribute="bottom" constant="20" id="9Af-q2-J2P"/>
-                            <constraint firstItem="apP-Om-FqS" firstAttribute="centerX" secondItem="6AO-Wq-Gls" secondAttribute="centerX" id="VZ1-J4-nu7"/>
+                            <constraint firstAttribute="trailing" secondItem="Weh-9M-8VY" secondAttribute="trailing" id="D4s-uK-5AF"/>
+                            <constraint firstItem="Weh-9M-8VY" firstAttribute="top" secondItem="apP-Om-FqS" secondAttribute="bottom" constant="16" id="EjQ-WV-Hbh"/>
+                            <constraint firstAttribute="trailing" secondItem="lpO-OE-HwX" secondAttribute="trailing" id="Etp-bg-lcV"/>
+                            <constraint firstItem="Weh-9M-8VY" firstAttribute="leading" secondItem="6AO-Wq-Gls" secondAttribute="leading" constant="65" id="Oki-4R-1bX"/>
+                            <constraint firstAttribute="trailing" secondItem="apP-Om-FqS" secondAttribute="trailing" constant="12" id="UQj-Wa-qJ6"/>
                             <constraint firstItem="ShK-70-jIv" firstAttribute="centerX" secondItem="6AO-Wq-Gls" secondAttribute="centerX" id="b6m-Gk-llH"/>
+                            <constraint firstItem="apP-Om-FqS" firstAttribute="top" secondItem="lpO-OE-HwX" secondAttribute="bottom" constant="15" id="cYe-Wg-SUr"/>
+                            <constraint firstItem="ruZ-78-BE0" firstAttribute="leading" secondItem="6AO-Wq-Gls" secondAttribute="leading" constant="22" id="d8S-Ch-RrE"/>
                             <constraint firstItem="apP-Om-FqS" firstAttribute="centerY" secondItem="6AO-Wq-Gls" secondAttribute="centerY" constant="-68.5" id="hJA-xE-G7N"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ShK-70-jIv" secondAttribute="trailing" id="t5L-Yd-8VF"/>
                             <constraint firstItem="ShK-70-jIv" firstAttribute="leading" secondItem="6AO-Wq-Gls" secondAttribute="leadingMargin" id="xEn-T2-Qeo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="No5-DI-ASq"/>
+                    <navigationItem key="navigationItem" title="HackCam" largeTitleDisplayMode="always" id="No5-DI-ASq"/>
                     <connections>
                         <outlet property="currentLogo" destination="MHY-EZ-tjW" id="kSk-vY-AwE"/>
                     </connections>
@@ -227,6 +249,7 @@ exit from camera mode</string>
                             <constraint firstItem="3fI-w8-ZQW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-8" id="zw4-6Z-e6x"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="bigLogoImageView" destination="0qY-E4-8Ss" id="xc3-Cx-BfL"/>
                         <outlet property="camView" destination="29l-jA-vp5" id="DXv-PY-zNz"/>
@@ -253,7 +276,7 @@ exit from camera mode</string>
                 <navigationController storyboardIdentifier="UINavigationController-bt4-2U-1iy" automaticallyAdjustsScrollViewInsets="NO" id="bt4-2U-1iy" customClass="HCMainNavViewController" customModule="HackCam" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="ptc-Dz-2hw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" largeTitles="YES" id="ptc-Dz-2hw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

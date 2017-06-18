@@ -19,14 +19,8 @@ class HCTutorialViewController: UIViewController {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
-        // Navigation Controller
-        DispatchQueue.main.async {
-            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-            self.navigationController?.navigationBar.shadowImage = UIImage()
-            self.navigationController?.navigationBar.isTranslucent = true
-            self.navigationController?.navigationBar.tintColor = .white
-        }
-
+        self.navigationController?.isNavigationBarHidden = true
+        
         // Panorama Background View
         let panoramaView = PanoramaView(frame: self.view.bounds)
         panoramaView.setImage(#imageLiteral(resourceName: "background"))
@@ -34,18 +28,25 @@ class HCTutorialViewController: UIViewController {
         self.navigationController?.view.insertSubview(panoramaView, at: 0)
         
         // Button Skip
-        getStartedButton.layer.cornerRadius = 3
+        getStartedButton.layer.cornerRadius = 6
         getStartedButton.clipsToBounds = true
         
         let blurEffect = UIBlurEffect(style: .regular)
-        let buttonBlurView = UIVisualEffectView(frame: getStartedButton.bounds)
+        let blurFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.8, height: getStartedButton.bounds.height)
+        let buttonBlurView = UIVisualEffectView(frame: blurFrame)
         buttonBlurView.effect = blurEffect
-        buttonBlurView.layer.cornerRadius = 3
+        buttonBlurView.layer.cornerRadius = 6
         buttonBlurView.clipsToBounds = true
         buttonBlurView.isUserInteractionEnabled = false
         
         getStartedButton.insertSubview(buttonBlurView, at: 0)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            self.navigationController?.isNavigationBarHidden = true
+        }
     }
     
     @IBAction func getStartedTapped(_ sender: Any) {

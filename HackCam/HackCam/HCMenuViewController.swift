@@ -24,12 +24,12 @@ class HCMenuViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
         // Navigation Controller
-        DispatchQueue.main.async {
-            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-            self.navigationController?.navigationBar.shadowImage = UIImage()
-            self.navigationController?.navigationBar.isTranslucent = true
-            self.navigationController?.navigationBar.tintColor = .white
-        }
+//        DispatchQueue.main.async {
+//            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//            self.navigationController?.navigationBar.shadowImage = UIImage()
+//            self.navigationController?.navigationBar.isTranslucent = true
+//            self.navigationController?.navigationBar.tintColor = .white
+//        }
         
         // Panorama Background View
         panoramaView = PanoramaView(frame: self.view.bounds)
@@ -53,6 +53,12 @@ class HCMenuViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.isStatusBarHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            self.navigationController?.isNavigationBarHidden = true
+        }
     }
     
     /// In case the device is rotated
@@ -162,11 +168,15 @@ extension HCMenuViewController: UIImagePickerControllerDelegate, UINavigationCon
     
     func startPhotoPickerSession() {
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+        DispatchQueue.main.async {
+            UIApplication.shared.statusBarStyle = .default
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let photoPicker = UIImagePickerController()
             photoPicker.delegate = self
             photoPicker.allowsEditing = false
-            photoPicker.sourceType = .savedPhotosAlbum
+            photoPicker.sourceType = .photoLibrary
             
             self.present(photoPicker, animated: true, completion: nil)
             
@@ -177,13 +187,26 @@ extension HCMenuViewController: UIImagePickerControllerDelegate, UINavigationCon
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [AnyHashable: Any]!) {
+        
         let data = UIImagePNGRepresentation(image)
         UserDefaults.standard.setValue(data, forKey: "storedLogoImage")
-        self.currentLogo.image = image
+        
+        DispatchQueue.main.async {
+            self.currentLogo.image = image
+            self.navigationController?.isNavigationBarHidden = false
+            UIApplication.shared.statusBarStyle = .lightContent
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+        DispatchQueue.main.async {
+            self.navigationController?.isNavigationBarHidden = false
+            UIApplication.shared.statusBarStyle = .lightContent
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     

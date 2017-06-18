@@ -9,6 +9,11 @@
 import UIKit
 
 class HCMainNavViewController: UINavigationController {
+    
+    internal var navBarBackgroundImage: UIImage! = nil
+    internal var navBarShadowImage: UIImage! = nil
+    internal var isNavBarTranslucent = false
+    internal var navBarTintColor: UIColor! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +22,7 @@ class HCMainNavViewController: UINavigationController {
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        guard visibleViewController != nil else { return .all }
         return visibleViewController!.supportedInterfaceOrientations
     }
 
