@@ -17,7 +17,7 @@ class HCMainNavViewController: UINavigationController {
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return visibleViewController!.supportedInterfaceOrientations
+        return visibleViewController?.supportedInterfaceOrientations ?? UIInterfaceOrientationMask.all
     }
 
 }
