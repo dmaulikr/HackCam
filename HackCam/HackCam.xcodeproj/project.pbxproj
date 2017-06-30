@@ -16,6 +16,7 @@
 		118EDA081DEB3FDB0040E8DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118EDA061DEB3FDB0040E8DC /* LaunchScreen.storyboard */; };
 		118EDA131DEB3FDB0040E8DC /* HackCamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118EDA121DEB3FDB0040E8DC /* HackCamTests.swift */; };
 		118EDA1E1DEB3FDB0040E8DC /* HackCamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118EDA1D1DEB3FDB0040E8DC /* HackCamUITests.swift */; };
+		1197D1481F0660C3005FD60B /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1197D1471F0660C3005FD60B /* GoogleMobileAds.framework */; };
 		11A34B571E512AD20083BEBA /* Staples Center.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 11A34B561E512AD20083BEBA /* Staples Center.gpx */; };
 		11A34B591E5134600083BEBA /* HCTutorial1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A34B581E5134600083BEBA /* HCTutorial1ViewController.swift */; };
 		11A34B5B1E5139EA0083BEBA /* HCTutorial2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A34B5A1E5139EA0083BEBA /* HCTutorial2ViewController.swift */; };
@@ -61,6 +62,7 @@
 		118EDA191DEB3FDB0040E8DC /* HackCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		118EDA1D1DEB3FDB0040E8DC /* HackCamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackCamUITests.swift; sourceTree = "<group>"; };
 		118EDA1F1DEB3FDB0040E8DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1197D1471F0660C3005FD60B /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		11A34B561E512AD20083BEBA /* Staples Center.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Staples Center.gpx"; sourceTree = "<group>"; };
 		11A34B581E5134600083BEBA /* HCTutorial1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCTutorial1ViewController.swift; sourceTree = "<group>"; };
 		11A34B5A1E5139EA0083BEBA /* HCTutorial2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCTutorial2ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1197D1481F0660C3005FD60B /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +141,7 @@
 				118EDA041DEB3FDB0040E8DC /* Assets.xcassets */,
 				118EDA061DEB3FDB0040E8DC /* LaunchScreen.storyboard */,
 				118EDA091DEB3FDB0040E8DC /* Info.plist */,
+				1197D1461F0660B3005FD60B /* Frameworks */,
 			);
 			path = HackCam;
 			sourceTree = "<group>";
@@ -158,6 +162,15 @@
 				118EDA1F1DEB3FDB0040E8DC /* Info.plist */,
 			);
 			path = HackCamUITests;
+			sourceTree = "<group>";
+		};
+		1197D1461F0660B3005FD60B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1197D1471F0660C3005FD60B /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		11B18D6C1E50D8E900AF1C50 /* External Libraries */ = {
@@ -483,6 +496,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G6TTA6H999;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HackCam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -498,6 +515,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G6TTA6H999;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HackCam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

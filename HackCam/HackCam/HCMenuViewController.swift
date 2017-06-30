@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class HCMenuViewController: UIViewController {
     
     @IBOutlet weak var currentLogo: UIImageView!
+    @IBOutlet weak var gadBannerView: UIView!
     
     var panoramaView: PanoramaView!
 
@@ -44,6 +46,9 @@ class HCMenuViewController: UIViewController {
         
         // Set Skip Tutorial Flag to TRUE
         UserDefaults.standard.set(true, forKey: "HCTutorialSkipped")
+        
+        // GAD
+        self.loadGAD()
         
     }
     
@@ -105,6 +110,24 @@ class HCMenuViewController: UIViewController {
         
         self.present(chooseLogoSource, animated: true, completion: nil)
         
+    }
+    
+    private func loadGAD() {
+    
+        let gadBannerInnerView = GADBannerView(adSize: kGADAdSizeFullBanner)
+        let screenWidth = UIScreen.main.bounds.width
+        gadBannerInnerView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenWidth * 5 / 32)
+        gadBannerInnerView.delegate = self
+        gadBannerInnerView.adUnitID = "ca-app-pub-6290472779919436/7243547708"
+        gadBannerInnerView.rootViewController = self
+        
+        gadBannerView.addSubview(gadBannerInnerView)
+        
+        let adRequest = GADRequest()
+//        adRequest.testDevices = [kGADSimulatorID, "0d564139d594821a2a7a28d3c47f697f"]
+        
+        gadBannerInnerView.load(adRequest)
+    
     }
 
 }
@@ -185,6 +208,22 @@ extension HCMenuViewController: UIImagePickerControllerDelegate, UINavigationCon
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+extension HCMenuViewController: GADBannerViewDelegate {
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        
+        DispatchQueue.main.async {
+            
+            UIView.animate(withDuration: 0.3, animations: { 
+                self.gadBannerView.alpha = 1
+            })
+            
+        }
+        
     }
     
 }

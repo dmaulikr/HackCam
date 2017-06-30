@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bt4-2U-1iy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A291j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bt4-2U-1iy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -77,7 +77,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ShK-70-jIv" userLabel="Logo Stack">
-                                <rect key="frame" x="16" y="521" width="343" height="126"/>
+                                <rect key="frame" x="16" y="467.5" width="343" height="126"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HCLogo" translatesAutoresizingMaskIntoConstraints="NO" id="MHY-EZ-tjW">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
@@ -96,22 +96,36 @@
                                     <constraint firstItem="MHY-EZ-tjW" firstAttribute="width" secondItem="ShK-70-jIv" secondAttribute="width" id="7fa-KL-IpM"/>
                                 </constraints>
                             </stackView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnM-Qy-d9n">
+                                <rect key="frame" x="0.0" y="608.5" width="375" height="58.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rnM-Qy-d9n" secondAttribute="height" multiplier="320:50" id="Ca0-sU-K6Z"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="adUnitID" value="ca-app-pub-6290472779919436/7243547708"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="apP-Om-FqS" firstAttribute="top" secondItem="ruZ-78-BE0" secondAttribute="bottom" constant="20" id="1Er-qD-NiH"/>
                             <constraint firstItem="ruZ-78-BE0" firstAttribute="centerX" secondItem="6AO-Wq-Gls" secondAttribute="centerX" id="3dF-Ju-1cK"/>
-                            <constraint firstItem="skn-Th-jMG" firstAttribute="top" secondItem="ShK-70-jIv" secondAttribute="bottom" constant="20" id="9Af-q2-J2P"/>
+                            <constraint firstItem="rnM-Qy-d9n" firstAttribute="centerX" secondItem="6AO-Wq-Gls" secondAttribute="centerX" id="L3U-Wn-Bxn"/>
+                            <constraint firstItem="skn-Th-jMG" firstAttribute="top" secondItem="rnM-Qy-d9n" secondAttribute="bottom" id="QlZ-ma-coZ"/>
                             <constraint firstItem="apP-Om-FqS" firstAttribute="centerX" secondItem="6AO-Wq-Gls" secondAttribute="centerX" id="VZ1-J4-nu7"/>
+                            <constraint firstItem="rnM-Qy-d9n" firstAttribute="top" secondItem="ShK-70-jIv" secondAttribute="bottom" constant="15" id="aS8-Kd-bAr"/>
                             <constraint firstItem="ShK-70-jIv" firstAttribute="centerX" secondItem="6AO-Wq-Gls" secondAttribute="centerX" id="b6m-Gk-llH"/>
                             <constraint firstItem="apP-Om-FqS" firstAttribute="centerY" secondItem="6AO-Wq-Gls" secondAttribute="centerY" constant="-68.5" id="hJA-xE-G7N"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ShK-70-jIv" secondAttribute="trailing" id="t5L-Yd-8VF"/>
+                            <constraint firstItem="rnM-Qy-d9n" firstAttribute="width" secondItem="6AO-Wq-Gls" secondAttribute="width" id="vNP-gz-Ed5"/>
                             <constraint firstItem="ShK-70-jIv" firstAttribute="leading" secondItem="6AO-Wq-Gls" secondAttribute="leadingMargin" id="xEn-T2-Qeo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="No5-DI-ASq"/>
                     <connections>
                         <outlet property="currentLogo" destination="MHY-EZ-tjW" id="kSk-vY-AwE"/>
+                        <outlet property="gadBannerView" destination="rnM-Qy-d9n" id="rO3-1K-Dyt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbf-au-Any" userLabel="First Responder" sceneMemberID="firstResponder"/>
